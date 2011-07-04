@@ -112,7 +112,7 @@ namespace BarcodeScanner
         {
             Dictionary<string, ActivityTimeLine> schedule = new Dictionary<string, ActivityTimeLine>();
 
-            DataSet set = ExcelDataReader.exceldata(@"C:\Documents and Settings\L.vBeek\My Documents\Scouting\Jotari\jotari planning 2011 laatste versie.xlsx");
+            DataSet set = ExcelDataReader.exceldata(@"schedule.xlsx");
 
             DataTable klein = set.Tables["Klein"];
             DataRow kleinGroupNrs = klein.Rows[1]; //this is the 2nd filled row
