@@ -25,6 +25,11 @@ namespace BarcodeScanner.Scanner
             processString = process;
         }
 
+        ~ZBarInterface()
+        {
+            reader.Close();
+        }
+
         public void Start()
         {
             worker = new Thread(Run);

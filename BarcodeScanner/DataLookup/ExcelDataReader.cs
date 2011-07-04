@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Office.Interop.Excel;
 using System.Data;
 using System.Data.OleDb;
 
@@ -11,7 +10,7 @@ namespace BarcodeScanner.DataLookup
     public class ExcelDataReader : IDataReader
     {
         public string Filename {get; private set;}
-        Application excel;
+        Microsoft.Office.Interop.Excel.Application excel;
         DataSet data;
 
         int blockDuration = 20;
@@ -94,30 +93,36 @@ namespace BarcodeScanner.DataLookup
         {
             DataSet ds = new DataSet();
 
-            OleDbCommand excelCommand = new OleDbCommand(); 
-            OleDbDataAdapter excelDataAdapter = new OleDbDataAdapter();
-
             string excelConnStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filelocation + ";Extended Properties=\"Excel 12.0 Xml;HDR=YES\";";
-            //string excelConnStr = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + filelocation + "; Extended Properties='Excel 8.0;HDR=Yes;IMEX=1'";
             OleDbConnection excelConn = new OleDbConnection(excelConnStr);
-
             excelConn.Open();
 
-            System.Data.DataTable dtPatterns = new System.Data.DataTable();
-            excelCommand = new OleDbCommand("SELECT * FROM [klein$]", excelConn);
+            #region programma klein
+            OleDbCommand kleinCommand = new OleDbCommand("SELECT * FROM [klein$]", excelConn);
 
-            excelDataAdapter.SelectCommand = excelCommand;
+            OleDbDataAdapter kleinDA = new OleDbDataAdapter(kleinCommand);
 
-            excelDataAdapter.Fill(dtPatterns);
+            DataTable kleinSchedule = new DataTable();
+            kleinDA.Fill(kleinSchedule);
 
-            dtPatterns.TableName = "Klein";
+            kleinSchedule.TableName = "Klein";
+            ds.Tables.Add(kleinSchedule);
+            #endregion programma klein
 
-            ds.Tables.Add(dtPatterns);
+            #region programma groot
+            OleDbCommand grootCommand = new OleDbCommand("SELECT * FROM [groot$]", excelConn);
 
+            OleDbDataAdapter grootDA = new OleDbDataAdapter(grootCommand);
+
+            DataTable grootSchedule = new DataTable();
+            grootDA.Fill(grootSchedule);
+
+            grootSchedule.TableName = "Groot";
+            ds.Tables.Add(grootSchedule);
+            #endregion programma groot
             excelConn.Close();
 
             return ds;
-
         }
     }
 }

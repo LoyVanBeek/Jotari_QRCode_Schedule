@@ -19,12 +19,6 @@ namespace BarcodeScanner
     /// </summary>
     public partial class Window1 : Window
     {
-        Process reader;
-
-        BarcodeScanner.DataLookup.IDataReader data;
-
-        Thread worker;
-
         Dictionary<string, ActivityTimeLine> schedule;
 
         ICodeReader scanner;
@@ -64,7 +58,7 @@ namespace BarcodeScanner
             string[] parts = idStr.Split(':');
             if (parts[0].ToUpper() == "QR-CODE")
             {
-                int id = int.Parse(parts[1]);
+                string id = parts[1];
                 DateTime now = DateTime.Now;
 
                 string day = (comboBox1.SelectedValue as ComboBoxItem).Content.ToString();
@@ -81,21 +75,29 @@ namespace BarcodeScanner
                     //Act like sunday
                     now = new DateTime(2011, 10, 16, now.Hour, now.Minute, now.Second);
                 }
-                string activity = data.Lookup(id, now);
 
-                ActivityTimeLine atl = schedule[id.ToString()];
-                Activity acti = atl[now];
+                Activity acti= null;
+                try
+                {
+                    ActivityTimeLine atl = schedule[id];
+                    acti = atl[now];
+                }
+                catch (KeyNotFoundException)
+                {
+                    acti = new Activity("Onbekend, vraag de leiding", new DateTime(), new DateTime(), "");
+                }
 
                 Console.Beep();
 
-                displayActivity(id.ToString(), acti);
+                displayActivity(id, acti);
             }
         }
 
         private void displayActivity(string group, Activity activity)
         {
-            Console.WriteLine("Group {0} has {1}", group, activity);
-            groupDisplay.Content = group;
+            string groupNr = group.Replace("Groot", "");
+            groupNr = group.Replace("Klein", ""); //Remove Klein and Groot
+            groupDisplay.Content = groupNr;
 
             ActivityDisplay.Text = activity.Name;
 
@@ -104,8 +106,6 @@ namespace BarcodeScanner
             Activity next = atl[activity.EndTime + new TimeSpan(0, 1, 0)];
 
             NextActivityDisplay.Text = next.Name;
-
-            //scheduleView.ItemsSource = atl;
         }
 
         private Dictionary<string, ActivityTimeLine> GetSchedule()
@@ -115,15 +115,27 @@ namespace BarcodeScanner
             DataSet set = ExcelDataReader.exceldata(@"C:\Documents and Settings\L.vBeek\My Documents\Scouting\Jotari\jotari planning 2011 laatste versie.xlsx");
 
             DataTable klein = set.Tables["Klein"];
-            DataRow groupNrs = klein.Rows[1]; //this is the 2nd filled row
+            DataRow kleinGroupNrs = klein.Rows[1]; //this is the 2nd filled row
 
-            for (int groupCol = 2; groupCol < groupNrs.ItemArray.Length; groupCol++) //start from 2, for column C
+            for (int groupCol = 2; groupCol < kleinGroupNrs.ItemArray.Length; groupCol++) //start from 2, for column C
             {
                 ActivityTimeLine atl = ActivityTimeLine.FromDataTable(klein, groupCol);
 
-                string groupNr = groupNrs[groupCol].ToString();
+                string groupNr = kleinGroupNrs[groupCol].ToString();
 
-                schedule.Add(groupNr, atl);
+                schedule.Add("Klein"+groupNr, atl);
+            }
+
+            DataTable groot = set.Tables["Groot"];
+            DataRow grootGroupNrs = groot.Rows[45]; //this is the 2nd filled row
+
+            for (int groupCol = 2; groupCol < grootGroupNrs.ItemArray.Length; groupCol++) //start from 2, for column C
+            {
+                ActivityTimeLine atl = ActivityTimeLine.FromDataTable(groot, groupCol);
+
+                string groupNr = grootGroupNrs[groupCol].ToString();
+
+                schedule.Add("Groot" + groupNr, atl);
             }
 
             return schedule;
