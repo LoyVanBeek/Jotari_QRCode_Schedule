@@ -16,8 +16,9 @@
                 <Setter Property="TextWrapping" Value="Wrap"/>
             </Style>
         </StackPanel.Resources>
-        <ComboBox Height="19" Name="comboBox1" Width="161" SelectedIndex="0" Margin="0,0">
-            <ComboBoxItem>Zaterdag</ComboBoxItem>
+        <ComboBox Height="19" Name="comboBox1" Width="161" SelectedIndex="1" Margin="0,0">
+            <ComboBoxItem>Auto</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">Zaterdag</ComboBoxItem>
             <ComboBoxItem>Zondag</ComboBoxItem>
         </ComboBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

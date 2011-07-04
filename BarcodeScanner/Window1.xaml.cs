@@ -72,8 +72,7 @@ namespace BarcodeScanner
                 }
                 else
                 {
-                    //Act like sunday
-                    now = new DateTime(2011, 10, 16, now.Hour, now.Minute, now.Second);
+                    //This means auto, so no change
                 }
 
                 Activity acti= null;
@@ -101,11 +100,16 @@ namespace BarcodeScanner
 
             ActivityDisplay.Text = activity.Name;
 
-            ActivityTimeLine atl = schedule[group];
+            try
+            {
+                ActivityTimeLine atl = schedule[group];
 
-            Activity next = atl[activity.EndTime + new TimeSpan(0, 1, 0)];
+                Activity next = atl[activity.EndTime + new TimeSpan(0, 1, 0)];
 
-            NextActivityDisplay.Text = next.Name;
+                NextActivityDisplay.Text = next.Name;
+            }
+            catch (Exception)
+            {}
         }
 
         private Dictionary<string, ActivityTimeLine> GetSchedule()
