@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeScanner", "BarcodeScanner\BarcodeScanner.csproj", "{526D7222-26E9-41DC-A291-FD34530D912D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZbarInterface", "ZbarInterface\ZbarInterface.csproj", "{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4FF15912-CF25-449E-AAC8-3FB57F6C7F22}"
@@ -12,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		BarcodeScanner.vsmdi = BarcodeScanner.vsmdi
 		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeGenerator", "BarcodeGenerator\BarcodeGenerator.csproj", "{D7F9620E-9B77-4ACA-8791-99CECB3471A7}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -40,18 +40,6 @@ Global
 		{526D7222-26E9-41DC-A291-FD34530D912D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{526D7222-26E9-41DC-A291-FD34530D912D}.Release|Win32.ActiveCfg = Release|Any CPU
 		{526D7222-26E9-41DC-A291-FD34530D912D}.Release|x64.ActiveCfg = Release|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|Win32.ActiveCfg = Release|Any CPU
-		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|x64.ActiveCfg = Release|Any CPU
 		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -64,6 +52,18 @@ Global
 		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Release|Win32.ActiveCfg = Release|Any CPU
 		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Release|x64.ActiveCfg = Release|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Release|Win32.ActiveCfg = Release|Any CPU
+		{D7F9620E-9B77-4ACA-8791-99CECB3471A7}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

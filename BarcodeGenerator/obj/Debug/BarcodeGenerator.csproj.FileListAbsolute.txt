@@ -1,0 +1,5 @@
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeGenerator\bin\Debug\BarcodeGenerator.exe
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeGenerator\bin\Debug\BarcodeGenerator.pdb
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeGenerator\obj\Debug\ResolveAssemblyReference.cache
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeGenerator\obj\Debug\BarcodeGenerator.exe
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeGenerator\obj\Debug\BarcodeGenerator.pdb
