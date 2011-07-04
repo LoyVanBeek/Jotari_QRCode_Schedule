@@ -78,10 +78,6 @@
     <Content Include="AuthoringTests.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\zxing\csharp\zxing.csproj">
-      <Project>{6431CF13-7A7B-4602-B96A-47CDA6F0B008}</Project>
-      <Name>zxing</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BarcodeScanner\BarcodeScanner.csproj">
       <Project>{526D7222-26E9-41DC-A291-FD34530D912D}</Project>
       <Name>BarcodeScanner</Name>

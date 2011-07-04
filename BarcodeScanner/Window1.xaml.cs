@@ -1,32 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using com.google.zxing;
-using System.Drawing;
-using com.google.zxing.common;
-using Emgu.CV;
-using Emgu.CV.Structure;
-using System.IO;
-using System.Windows.Interop;
-using System.Timers;
 using System.ComponentModel;
-using System.Windows.Threading;
-using com.google.zxing.qrcode;
-using System.Diagnostics;
-using BarcodeScanner.DataLookup;
-using System.Threading;
 using System.Data;
+using System.Diagnostics;
+using System.IO;
+using System.Threading;
+using System.Windows;
+using System.Windows.Threading;
 using BarcodeScanner.Data;
+using BarcodeScanner.DataLookup;
+using BarcodeScanner.Scanner;
+using System.Windows.Controls;
 
 namespace BarcodeScanner
 {
@@ -43,6 +27,8 @@ namespace BarcodeScanner
 
         Dictionary<string, ActivityTimeLine> schedule;
 
+        ICodeReader scanner;
+
         public Window1()
         {
             Loaded += new RoutedEventHandler(Window1_Loaded);
@@ -53,68 +39,59 @@ namespace BarcodeScanner
 
         void Window1_Closing(object sender, CancelEventArgs e)
         {
-            worker.Abort();
-            if (!reader.HasExited)
-            {
-                reader.Kill();
-                reader.Close(); 
-            }
+            scanner.Stop();
         }
 
         void Window1_Loaded(object sender, RoutedEventArgs e)
         {
-            data = new ExcelDataReader(@"C:\Documents and Settings\L.vBeek\My Documents\Scouting\Jotari\jotari planning 2011 laatste versie.xlsx");
-            worker = new Thread(Loop);
-            worker.Start();
+            scanner = new ZBarInterface();
+            scanner.CodeRead += new CodeReadHandler(scanner_CodeRead);
+            scanner.Start();
 
             schedule = GetSchedule();
         }
 
-        private void Loop()
+        void scanner_CodeRead(string code)
         {
-            IEnumerable<string> ids = readProcess();
-            foreach (string idStr in ids)
+            Dispatcher.BeginInvoke(
+                  DispatcherPriority.Background,
+                  new Action(
+                      () => HandleCodeRead(code)));
+        }
+
+        private void HandleCodeRead(string idStr)
+        {
+            string[] parts = idStr.Split(':');
+            if (parts[0].ToUpper() == "QR-CODE")
             {
-                string[] parts = idStr.Split(':');
-                if (parts[0].ToUpper() == "QR-CODE")
+                int id = int.Parse(parts[1]);
+                DateTime now = DateTime.Now;
+
+                string day = (comboBox1.SelectedValue as ComboBoxItem).Content.ToString();
+                if (day == "Zaterdag")
                 {
-                    int id = int.Parse(parts[1]);
-                    DateTime now = DateTime.Now;
-
-                    if (comboBox1.SelectedItem.ToString() == "Zaterdag")
-                    {
-                        now = new DateTime(2011, 10, 15, now.Hour, now.Minute, now.Second);
-                    }
-                    else if (comboBox1.SelectedItem.ToString() == "Zondag")
-                    {
-                        now = new DateTime(2011, 10, 16, now.Hour, now.Minute, now.Second);
-                    }
-                    else
-                    {
-                        //Act like sunday
-                        now = new DateTime(2011, 10, 16, now.Hour, now.Minute, now.Second);
-                    }
-                    string activity = data.Lookup(id, now);
-
-                    ActivityTimeLine atl = schedule[id.ToString()];
-                    Activity acti = atl[now];
-
-                    Console.Beep();
-
-                    Dispatcher.BeginInvoke(
-                      DispatcherPriority.Background,
-                      new Action(
-                          () => displayActivity(id.ToString(), acti)));
+                    now = new DateTime(2011, 10, 15, now.Hour, now.Minute, now.Second);
                 }
+                else if (day == "Zondag")
+                {
+                    now = new DateTime(2011, 10, 16, now.Hour, now.Minute, now.Second);
+                }
+                else
+                {
+                    //Act like sunday
+                    now = new DateTime(2011, 10, 16, now.Hour, now.Minute, now.Second);
+                }
+                string activity = data.Lookup(id, now);
+
+                ActivityTimeLine atl = schedule[id.ToString()];
+                Activity acti = atl[now];
+
+                Console.Beep();
+
+                displayActivity(id.ToString(), acti);
             }
         }
 
-        private void displayActivity(int id, string activity)
-        {
-            Console.WriteLine("Group {0} has {1}", id, activity);
-            groupDisplay.Content = id;
-            ActivityDisplay.Text = activity;
-        }
         private void displayActivity(string group, Activity activity)
         {
             Console.WriteLine("Group {0} has {1}", group, activity);
@@ -124,41 +101,11 @@ namespace BarcodeScanner
 
             ActivityTimeLine atl = schedule[group];
 
-            Activity next = atl[activity.EndTime+new TimeSpan(0,1,0)];
+            Activity next = atl[activity.EndTime + new TimeSpan(0, 1, 0)];
 
             NextActivityDisplay.Text = next.Name;
 
             //scheduleView.ItemsSource = atl;
-        }
-
-        private IEnumerable<string> readProcess()
-        {
-            ProcessStartInfo zbarStart = new ProcessStartInfo(@"C:\Program Files\ZBar\bin\zbarcam.exe");
-            zbarStart.RedirectStandardOutput = true;
-            zbarStart.UseShellExecute = false;
-            zbarStart.CreateNoWindow = false;
-
-            reader = Process.Start(zbarStart);
-            while (true)
-            {
-                string line = "";
-                try
-                {
-                    line = reader.StandardOutput.ReadLine();
-
-                    //System.Console.WriteLine(line);
-                }
-                catch (IOException)
-                {
-                    break;
-                }
-
-                if (!String.IsNullOrEmpty(line))
-                {
-                    yield return line;
-                }
-            }
-            reader.Close();
         }
 
         private Dictionary<string, ActivityTimeLine> GetSchedule()
