@@ -1,3 +1,5 @@
 Uses QR-codes and time to determine what activity kids should go to now.
 
 THe program starts a separate process for ZBar and reads in its console output. 
+
+Each QR-code has the format <Groot/Klein><group number>, e.g. Groot11
