@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="0916f1f4-9a96-4809-9294-87f573dfb0a7" name="L.vBeek@WWA-LAPTOP48 2011-06-14 18:40:17" runUser="WWA\L.vBeek" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="6179ccf1-11bb-4f02-93ed-4e32203a4659">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="D:\Development\Barcode\BarcodeScanner\TestResults\L.vBeek_WWA-LAPTOP48 2011-06-14 18_40_17">
+      <DeploymentItem filename="C:\Program Files\Emgu\Emgu CV\bin\Emgu.Util.dll" />
+      <DeploymentItem filename="D:\Development\Barcode\BarcodeScanner\BarcodeScanner\bin\Debug\BarcodeScanner.exe" />
+      <DeploymentItem filename="C:\Program Files\Emgu\Emgu CV\bin\Emgu.CV.UI.dll" />
+      <DeploymentItem filename="D:\Development\zxing\csharp\zxing.dll" />
+      <DeploymentItem filename="C:\Program Files\Emgu\Emgu CV\bin\Emgu.CV.dll" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2011-06-14T18:40:17.6718750+02:00" queuing="2011-06-14T18:40:18.5625000+02:00" start="2011-06-14T18:40:18.7187500+02:00" finish="2011-06-14T18:40:19.6406250+02:00" />
+  <TestDefinitions>
+    <UnitTest name="LookupTest" storage="d:\development\barcode\barcodescanner\tests\bin\debug\tests.dll" id="fbb21b4e-0678-832f-5925-ac1c8ce2bcb5">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="56ecef06-9b1e-42fa-a07f-c7bce46a5c77" />
+      <TestMethod codeBase="D:\Development\Barcode\BarcodeScanner\Tests\bin\Debug\Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Tests.ExcelDataReaderTest, Tests" name="LookupTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="fbb21b4e-0678-832f-5925-ac1c8ce2bcb5" executionId="56ecef06-9b1e-42fa-a07f-c7bce46a5c77" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="56ecef06-9b1e-42fa-a07f-c7bce46a5c77" testId="fbb21b4e-0678-832f-5925-ac1c8ce2bcb5" testName="LookupTest" computerName="WWA-LAPTOP48" duration="00:00:00.2810460" startTime="2011-06-14T18:40:18.7812500+02:00" endTime="2011-06-14T18:40:19.5156250+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

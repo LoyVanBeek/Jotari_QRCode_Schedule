@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="a20d830a-f5c6-4f97-92c9-2bed07a6efb8" name="L.vBeek@WWA-LAPTOP48 2011-06-15 13:30:59" runUser="WWA\L.vBeek" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="6179ccf1-11bb-4f02-93ed-4e32203a4659">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="D:\Development\Barcode\BarcodeScanner\TestResults\L.vBeek_WWA-LAPTOP48 2011-06-15 13_30_59">
+      <DeploymentItem filename="C:\Program Files\Emgu\Emgu CV\bin\Emgu.Util.dll" />
+      <DeploymentItem filename="D:\Development\Barcode\BarcodeScanner\BarcodeScanner\bin\Debug\BarcodeScanner.exe" />
+      <DeploymentItem filename="C:\Program Files\Emgu\Emgu CV\bin\Emgu.CV.UI.dll" />
+      <DeploymentItem filename="D:\Development\zxing\csharp\zxing.dll" />
+      <DeploymentItem filename="C:\Program Files\Emgu\Emgu CV\bin\Emgu.CV.dll" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2011-06-15T13:30:59.3125000+02:00" queuing="2011-06-15T13:31:00.7187500+02:00" start="2011-06-15T13:31:00.9062500+02:00" finish="2011-06-15T13:31:15.6718750+02:00" />
+  <TestDefinitions>
+    <UnitTest name="LaterTest" storage="d:\development\barcode\barcodescanner\tests\bin\debug\tests.dll" id="4abf7474-6ef0-5898-af48-e51fdcd8717f">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <DeploymentItems>
+        <DeploymentItem filename="BarcodeScanner.exe" />
+      </DeploymentItems>
+      <Execution id="67f8eb4a-6d01-476c-a15e-61b880c80c49" />
+      <TestMethod codeBase="D:\Development\Barcode\BarcodeScanner\Tests\bin\Debug\Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Tests.ExcelDataReaderTest, Tests" name="LaterTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="4abf7474-6ef0-5898-af48-e51fdcd8717f" executionId="67f8eb4a-6d01-476c-a15e-61b880c80c49" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="67f8eb4a-6d01-476c-a15e-61b880c80c49" testId="4abf7474-6ef0-5898-af48-e51fdcd8717f" testName="LaterTest" computerName="WWA-LAPTOP48" duration="00:00:14.0436343" startTime="2011-06-15T13:31:01.0156250+02:00" endTime="2011-06-15T13:31:15.6093750+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Tests.ExcelDataReaderTest.LaterTest threw exception:  System.NullReferenceException: Object reference not set to an instance of an object..</Message>
+          <StackTrace>   at BarcodeScanner.DataLookup.ExcelDataReader_Accessor.Later(DateTime questioned, DateTime compareTo)
+   at Tests.ExcelDataReaderTest.LaterTest() in D:\Development\Barcode\BarcodeScanner\Tests\ExcelDataReaderTest.cs:line 99
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,3 @@
+Uses QR-codes and time to determine what activity kids should go to now.
+
+THe program starts a separate process for ZBar and reads in its console output. 

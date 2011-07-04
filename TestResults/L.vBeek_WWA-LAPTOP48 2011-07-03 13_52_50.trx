@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="fcaed866-872c-4551-b423-d2fae8d86c6e" name="L.vBeek@WWA-LAPTOP48 2011-07-03 13:52:50" runUser="WWA\L.vBeek" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="6179ccf1-11bb-4f02-93ed-4e32203a4659">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="D:\Development\Barcode\BarcodeScanner\TestResults\L.vBeek_WWA-LAPTOP48 2011-07-03 13_52_50">
+      <DeploymentItem filename="C:\Program Files\Emgu\Emgu CV\bin\Emgu.Util.dll" />
+      <DeploymentItem filename="D:\Development\Barcode\BarcodeScanner\BarcodeScanner\bin\Debug\BarcodeScanner.exe" />
+      <DeploymentItem filename="C:\Program Files\Emgu\Emgu CV\bin\Emgu.CV.UI.dll" />
+      <DeploymentItem filename="D:\Development\zxing\csharp\zxing.dll" />
+      <DeploymentItem filename="C:\Program Files\Emgu\Emgu CV\bin\Emgu.CV.dll" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2011-07-03T13:52:50.4062500+02:00" queuing="2011-07-03T13:52:53.9531250+02:00" start="2011-07-03T13:52:54.1406250+02:00" finish="2011-07-03T13:53:54.1718750+02:00" />
+  <TestDefinitions>
+    <UnitTest name="getCurrentTest" storage="d:\development\barcode\barcodescanner\tests\bin\debug\tests.dll" id="f74aeacc-61d4-9681-22c9-245da80a7f0d">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <DeploymentItems>
+        <DeploymentItem filename="BarcodeScanner.exe" />
+      </DeploymentItems>
+      <Execution id="315ecade-c9b2-4884-ac21-a3f67e986c05" />
+      <TestMethod codeBase="D:\Development\Barcode\BarcodeScanner\Tests\bin\Debug\Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Tests.ActivityTimeLineTest, Tests" name="getCurrentTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="f74aeacc-61d4-9681-22c9-245da80a7f0d" executionId="315ecade-c9b2-4884-ac21-a3f67e986c05" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="315ecade-c9b2-4884-ac21-a3f67e986c05" testId="f74aeacc-61d4-9681-22c9-245da80a7f0d" testName="getCurrentTest" computerName="WWA-LAPTOP48" duration="00:00:59.2512615" startTime="2011-07-03T13:52:54.2812500+02:00" endTime="2011-07-03T13:53:54.0625000+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

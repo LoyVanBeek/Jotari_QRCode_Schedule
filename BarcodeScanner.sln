@@ -1,0 +1,136 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeScanner", "BarcodeScanner\BarcodeScanner.csproj", "{526D7222-26E9-41DC-A291-FD34530D912D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zxing", "..\..\zxing\csharp\zxing.csproj", "{6431CF13-7A7B-4602-B96A-47CDA6F0B008}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZbarInterface", "ZbarInterface\ZbarInterface.csproj", "{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4FF15912-CF25-449E-AAC8-3FB57F6C7F22}"
+	ProjectSection(SolutionItems) = preProject
+		BarcodeScanner.vsmdi = BarcodeScanner.vsmdi
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = BarcodeScanner.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Release|Win32.ActiveCfg = Release|Any CPU
+		{526D7222-26E9-41DC-A291-FD34530D912D}.Release|x64.ActiveCfg = Release|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Release|Win32.ActiveCfg = Release|Any CPU
+		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Release|x64.ActiveCfg = Release|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|Win32.ActiveCfg = Release|Any CPU
+		{9A0DCEC3-A9F9-4A44-8020-2E73EB7FC512}.Release|x64.ActiveCfg = Release|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Release|Win32.ActiveCfg = Release|Any CPU
+		{23F62DA2-C335-4566-A0C6-E34B3C4DB7C7}.Release|x64.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 13
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs04.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Touchless.Demo\\Touchless.Demo.csproj
+		SccProjectTopLevelParentUniqueName1 = Touchless.sln
+		SccProjectName1 = Touchless.Demo
+		SccLocalPath1 = Touchless.Demo
+		SccProjectUniqueName2 = Touchless.Multitouch\\Touchless.Multitouch.csproj
+		SccProjectName2 = Touchless.Multitouch
+		SccLocalPath2 = Touchless.Multitouch
+		SccProjectUniqueName3 = Touchless.Shared\\Touchless.Shared.csproj
+		SccProjectName3 = Touchless.Shared
+		SccLocalPath3 = Touchless.Shared
+		SccProjectUniqueName4 = Touchless.Vision.Contracts\\Touchless.Vision.Contracts.csproj
+		SccProjectTopLevelParentUniqueName4 = Touchless.sln
+		SccProjectName4 = Touchless.Vision.Contracts
+		SccLocalPath4 = Touchless.Vision.Contracts
+		SccProjectUniqueName5 = Touchless.Vision.Service.Client\\Touchless.Vision.Service.Client.csproj
+		SccProjectTopLevelParentUniqueName5 = Touchless.sln
+		SccProjectName5 = Touchless.Vision.Service.Client
+		SccLocalPath5 = Touchless.Vision.Service.Client
+		SccProjectUniqueName6 = Touchless.Vision.Service.Host.Console\\Touchless.Vision.Service.Host.Console.csproj
+		SccProjectTopLevelParentUniqueName6 = Touchless.sln
+		SccProjectName6 = Touchless.Vision.Service.Host.Console
+		SccLocalPath6 = Touchless.Vision.Service.Host.Console
+		SccProjectUniqueName7 = Touchless.Vision.Service.Host.WindowsService\\Touchless.Vision.Service.Host.WindowsService.csproj
+		SccProjectTopLevelParentUniqueName7 = Touchless.sln
+		SccProjectName7 = Touchless.Vision.Service.Host.WindowsService
+		SccLocalPath7 = Touchless.Vision.Service.Host.WindowsService
+		SccProjectUniqueName8 = Touchless.Vision.Service.Host\\Touchless.Vision.Service.Host.csproj
+		SccProjectTopLevelParentUniqueName8 = Touchless.sln
+		SccProjectName8 = Touchless.Vision.Service.Host
+		SccLocalPath8 = Touchless.Vision.Service.Host
+		SccProjectUniqueName9 = Touchless.Vision.Service\\Touchless.Vision.Service.csproj
+		SccProjectTopLevelParentUniqueName9 = Touchless.sln
+		SccProjectName9 = Touchless.Vision.Service
+		SccLocalPath9 = Touchless.Vision.Service
+		SccProjectUniqueName10 = Touchless.Vision\\Touchless.Vision.csproj
+		SccProjectTopLevelParentUniqueName10 = Touchless.sln
+		SccProjectName10 = Touchless.Vision
+		SccLocalPath10 = Touchless.Vision
+		SccProjectUniqueName11 = Touchless.WPF\\Touchless.WPF.csproj
+		SccProjectTopLevelParentUniqueName11 = Touchless.sln
+		SccProjectName11 = Touchless.WPF
+		SccLocalPath11 = Touchless.WPF
+		SccProjectUniqueName12 = WebCamLib\\WebCamLib.vcproj
+		SccProjectName12 = WebCamLib
+		SccLocalPath12 = WebCamLib
+	EndGlobalSection
+EndGlobal

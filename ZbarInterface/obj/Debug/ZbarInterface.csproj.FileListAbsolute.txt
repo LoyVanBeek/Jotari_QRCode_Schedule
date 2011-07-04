@@ -1,0 +1,5 @@
+D:\Development\Barcode\BarcodeScanner\ZbarInterface\bin\Debug\ZbarInterface.exe
+D:\Development\Barcode\BarcodeScanner\ZbarInterface\bin\Debug\ZbarInterface.pdb
+D:\Development\Barcode\BarcodeScanner\ZbarInterface\obj\Debug\ResolveAssemblyReference.cache
+D:\Development\Barcode\BarcodeScanner\ZbarInterface\obj\Debug\ZbarInterface.exe
+D:\Development\Barcode\BarcodeScanner\ZbarInterface\obj\Debug\ZbarInterface.pdb

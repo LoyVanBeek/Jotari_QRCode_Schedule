@@ -1,0 +1,18 @@
+﻿<config>
+  <OutputFolder>$(AppDir)-Profiled</OutputFolder>
+  <ReportFolderNetFull>$(SystemRoot)\Temp\EQATECProfilerLogs</ReportFolderNetFull>
+  <ReportFolderNetCF>\Temp\EQATECProfilerLogs</ReportFolderNetCF>
+  <AutoSnapshot>Main OnStop ApplicationEnd</AutoSnapshot>
+  <TinyMethodAction>CallCount</TinyMethodAction>
+  <RuntimeControlEnabled>true</RuntimeControlEnabled>
+  <RuntimeControlPort>3947</RuntimeControlPort>
+  <RuntimeModuleLogLevel>Errors</RuntimeModuleLogLevel>
+  <ExcludeFiles>
+    <ExcludeFile>BarcodeScanner.vshost.exe</ExcludeFile>
+  </ExcludeFiles>
+  <SignActions>
+    <SignAction action="Skip" publickey="ACQAAASAAACUAAAABgIAAAAkAABSU0ExAAQAAAEAAQCPgOxXIDGsSTiTPuIG1tioPDx2yiGurQE9jICBseUwN5XZhQHjmOyMGQRR4LS8xq4fKA0j/PFAQbj7UFkn2kRx23w5lIZDRlWLVUUlYSAmV9/qI8MTPivDJXeKakCBXAFb4o19QHwTI0yYct+Ym9+cz+prTamCOKHbFidbNMn43g==" usedby="D:\Development\Barcode\BarcodeScanner\BarcodeScanner\bin\Debug\Emgu.CV.dll" keyfile="" />
+    <SignAction action="Skip" publickey="ACQAAASAAACUAAAABgIAAAAkAABSU0ExAAQAAAEAAQAvhvwxfseOVFGI23DZFQVvWkK8xZ8+lz7qI7dxtuZ3jHTVtCap/563NEft7nj8Rc44AUca6AcLhG3w2OMn8sn0k946dh8fbCyrFXy05kp/DfgzyVZIfd7Vyz+4DhBKC6F7nL0j6zl04XJIMfD9zEMfTAi3Z5rToSEvvLFzvuEEvg==" usedby="D:\Development\Barcode\BarcodeScanner\BarcodeScanner\bin\Debug\ZedGraph.dll" keyfile="" />
+    <SignAction action="Skip" publickey="ACQAAASAAACUAAAABgIAAAAkAABSU0ExAAQAAAEAAQCX5NciJj97G6uidu46w9x6oN8pMMa63Uz+Mr0o6nqgjWS3aTsa+/VrS4i7gaYOy6XDkmJrei+6H6fgHTNogDcgUCrn+I7wRsi7QFuc3mc/fh3iTGq8W0CnLZy47t81wgoWeT1exlP6UU5MRg1/IRRJ3h+gtI+BYYkpM4kCltjV0w==" usedby="D:\Development\Barcode\BarcodeScanner\BarcodeScanner\bin\Debug\zlib.net.dll" keyfile="" />
+  </SignActions>
+</config>
