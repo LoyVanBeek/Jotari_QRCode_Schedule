@@ -94,9 +94,9 @@ namespace BarcodeScanner
 
         private void displayActivity(string group, Activity activity)
         {
-            string groupNr = group.Replace("Groot", "");
-            groupNr = group.Replace("Klein", ""); //Remove Klein and Groot
-            groupDisplay.Content = groupNr;
+            //string groupNr = group.Replace("Groot", "");
+            //groupNr = group.Replace("Klein", ""); //Remove Klein and Groot
+            groupDisplay.Content = group;
 
             ActivityDisplay.Text = activity.Name;
 
