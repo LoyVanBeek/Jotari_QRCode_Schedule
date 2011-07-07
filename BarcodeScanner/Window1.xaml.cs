@@ -60,11 +60,11 @@ namespace BarcodeScanner
             {
                 string idStr = parts[1];
                 int id = int.Parse(idStr);
-
+                Console.WriteLine("ID = " + id.ToString());
                 try
                 {
                     DataTable prijzen = data.Tables[0];
-                    DataRow row = prijzen.Rows[id];
+                    DataRow row = prijzen.Rows[id-1];
                     object item = row[0];
 
                     PrijsDisplay.Text = item.ToString();
