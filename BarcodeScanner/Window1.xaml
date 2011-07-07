@@ -1,9 +1,9 @@
 ﻿<Window x:Class="BarcodeScanner.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="JOTARI Programma" Height="800" Width="1000"
-    WindowState="Maximized">
-    <StackPanel HorizontalAlignment="Center">
+    Title="" Height="800" Width="1000"
+    WindowState="Maximized" Background="Black" Foreground="LawnGreen" FontFamily="Bitstream Vera Sans Mono">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel.Resources>
             <Style TargetType="{x:Type Label}">
                 <Setter Property="FontSize" Value="100"/>
@@ -15,7 +15,7 @@
                 <Setter Property="TextWrapping" Value="Wrap"/>
             </Style>
         </StackPanel.Resources>
-        <Label FontSize="50">Prijs:</Label>
+        <TextBlock FontSize="50" Text="Prijs:"/>
         <TextBlock x:Name="PrijsDisplay" Text="prijs..."/>
     </StackPanel>
 </Window>
