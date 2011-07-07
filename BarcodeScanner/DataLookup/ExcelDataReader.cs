@@ -97,29 +97,16 @@ namespace BarcodeScanner.DataLookup
             OleDbConnection excelConn = new OleDbConnection(excelConnStr);
             excelConn.Open();
 
-            #region programma klein
-            OleDbCommand kleinCommand = new OleDbCommand("SELECT * FROM [klein$]", excelConn);
+            OleDbCommand prijzenCommand = new OleDbCommand("SELECT * FROM [prijzen$]", excelConn);
 
-            OleDbDataAdapter kleinDA = new OleDbDataAdapter(kleinCommand);
+            OleDbDataAdapter prijzenDA = new OleDbDataAdapter(prijzenCommand);
 
-            DataTable kleinSchedule = new DataTable();
-            kleinDA.Fill(kleinSchedule);
+            DataTable prijzenDT = new DataTable();
+            prijzenDA.Fill(prijzenDT);
 
-            kleinSchedule.TableName = "Klein";
-            ds.Tables.Add(kleinSchedule);
-            #endregion programma klein
+            prijzenDT.TableName = "Prijzen";
+            ds.Tables.Add(prijzenDT);
 
-            #region programma groot
-            OleDbCommand grootCommand = new OleDbCommand("SELECT * FROM [groot$]", excelConn);
-
-            OleDbDataAdapter grootDA = new OleDbDataAdapter(grootCommand);
-
-            DataTable grootSchedule = new DataTable();
-            grootDA.Fill(grootSchedule);
-
-            grootSchedule.TableName = "Groot";
-            ds.Tables.Add(grootSchedule);
-            #endregion programma groot
             excelConn.Close();
 
             return ds;

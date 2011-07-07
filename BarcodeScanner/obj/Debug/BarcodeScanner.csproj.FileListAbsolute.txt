@@ -53,4 +53,4 @@ D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZedGraph
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\zh-CN\Emgu.CV.UI.resources.dll
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\zh-CN\ZedGraph.resources.dll
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\obj\Debug\BarcodeScanner_Content.g.cs
-D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\schedule.xlsx
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Prizes.xlsx

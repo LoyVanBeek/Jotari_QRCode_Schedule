@@ -19,7 +19,7 @@ namespace BarcodeScanner
     /// </summary>
     public partial class Window1 : Window
     {
-        Dictionary<string, ActivityTimeLine> schedule;
+        DataSet data;
 
         ICodeReader scanner;
 
@@ -42,7 +42,7 @@ namespace BarcodeScanner
             scanner.CodeRead += new CodeReadHandler(scanner_CodeRead);
             scanner.Start();
 
-            schedule = GetSchedule();
+            data = GetData();
         }
 
         void scanner_CodeRead(string code)
@@ -53,96 +53,38 @@ namespace BarcodeScanner
                       () => HandleCodeRead(code)));
         }
 
-        private void HandleCodeRead(string idStr)
+        private void HandleCodeRead(string code)
         {
-            string[] parts = idStr.Split(':');
+            string[] parts = code.Split(':');
             if (parts[0].ToUpper() == "QR-CODE")
             {
-                string id = parts[1];
-                DateTime now = DateTime.Now;
+                string idStr = parts[1];
+                int id = int.Parse(idStr);
 
-                string day = (comboBox1.SelectedValue as ComboBoxItem).Content.ToString();
-                if (day == "Zaterdag")
-                {
-                    now = new DateTime(2011, 10, 15, now.Hour, now.Minute, now.Second);
-                }
-                else if (day == "Zondag")
-                {
-                    now = new DateTime(2011, 10, 16, now.Hour, now.Minute, now.Second);
-                }
-                else
-                {
-                    //This means auto, so no change
-                }
-
-                Activity acti= null;
                 try
                 {
-                    ActivityTimeLine atl = schedule[id];
-                    acti = atl[now];
+                    DataTable prijzen = data.Tables[0];
+                    DataRow row = prijzen.Rows[id];
+                    object item = row[0];
+
+                    PrijsDisplay.Text = item.ToString();
                 }
-                catch (KeyNotFoundException)
+                catch (Exception e)
                 {
-                    acti = new Activity("Onbekend, vraag de leiding", new DateTime(), new DateTime(), "");
+                    PrijsDisplay.Text = "Helaas, geen prijs";
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine(e.InnerException);
                 }
-
-                Console.Beep();
-
-                displayActivity(id, acti);
             }
         }
 
-        private void displayActivity(string group, Activity activity)
+        private DataSet GetData()
         {
-            //string groupNr = group.Replace("Groot", "");
-            //groupNr = group.Replace("Klein", ""); //Remove Klein and Groot
-            groupDisplay.Content = group;
-
-            ActivityDisplay.Text = activity.Name;
-
-            try
-            {
-                ActivityTimeLine atl = schedule[group];
-
-                Activity next = atl[activity.EndTime + new TimeSpan(0, 1, 0)];
-
-                NextActivityDisplay.Text = next.Name;
-            }
-            catch (Exception)
-            {}
-        }
-
-        private Dictionary<string, ActivityTimeLine> GetSchedule()
-        {
-            Dictionary<string, ActivityTimeLine> schedule = new Dictionary<string, ActivityTimeLine>();
-
-            DataSet set = ExcelDataReader.exceldata(@"schedule.xlsx");
+            DataSet set = ExcelDataReader.exceldata(@"Prizes.xlsx");
 
             DataTable klein = set.Tables["Klein"];
-            DataRow kleinGroupNrs = klein.Rows[1]; //this is the 2nd filled row
-
-            for (int groupCol = 2; groupCol < kleinGroupNrs.ItemArray.Length; groupCol++) //start from 2, for column C
-            {
-                ActivityTimeLine atl = ActivityTimeLine.FromDataTable(klein, groupCol);
-
-                string groupNr = kleinGroupNrs[groupCol].ToString();
-
-                schedule.Add("Klein"+groupNr, atl);
-            }
-
-            DataTable groot = set.Tables["Groot"];
-            DataRow grootGroupNrs = groot.Rows[45]; //this is the 2nd filled row
-
-            for (int groupCol = 2; groupCol < grootGroupNrs.ItemArray.Length; groupCol++) //start from 2, for column C
-            {
-                ActivityTimeLine atl = ActivityTimeLine.FromDataTable(groot, groupCol);
-
-                string groupNr = grootGroupNrs[groupCol].ToString();
-
-                schedule.Add("Groot" + groupNr, atl);
-            }
-
-            return schedule;
+            
+            return set;
         }
     }
 }

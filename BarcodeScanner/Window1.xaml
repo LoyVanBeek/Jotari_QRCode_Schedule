@@ -3,7 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="JOTARI Programma" Height="800" Width="1000"
     WindowState="Maximized">
-    <!--<DockPanel>-->
     <StackPanel HorizontalAlignment="Center">
         <StackPanel.Resources>
             <Style TargetType="{x:Type Label}">
@@ -16,33 +15,7 @@
                 <Setter Property="TextWrapping" Value="Wrap"/>
             </Style>
         </StackPanel.Resources>
-        <ComboBox Height="19" Name="comboBox1" Width="161" SelectedIndex="1" Margin="0,0">
-            <ComboBoxItem>Auto</ComboBoxItem>
-            <ComboBoxItem IsSelected="True">Zaterdag</ComboBoxItem>
-            <ComboBoxItem>Zondag</ComboBoxItem>
-        </ComboBox>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Label>Groep</Label>
-            <Separator Width="50" Opacity="0" />
-            <Label x:Name="groupDisplay" Content="xx"/>
-        </StackPanel>
-        <Label FontSize="50">gaat naar</Label>
-        <TextBlock x:Name="ActivityDisplay" Text="activiteit"/>
-        <Label FontSize="50">daarna</Label>
-        <TextBlock x:Name="NextActivityDisplay" Text="volgende activiteit"/>
+        <Label FontSize="50">Prijs:</Label>
+        <TextBlock x:Name="PrijsDisplay" Text="prijs..."/>
     </StackPanel>
-
-    <!--<ListView x:Name="scheduleView" DockPanel.Dock="Right" Visibility="Collapsed">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Start"
-                                    DisplayMemberBinding="{Binding StartTime}"/>
-                    <GridViewColumn Header="Einde"
-                                    DisplayMemberBinding="{Binding EndTime}" />
-                    <GridViewColumn Header="Activiteit"
-                                    DisplayMemberBinding="{Binding Name}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-    </DockPanel>-->
 </Window>
