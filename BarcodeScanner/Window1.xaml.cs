@@ -40,9 +40,19 @@ namespace BarcodeScanner
         {
             scanner = new ZBarInterface();
             scanner.CodeRead += new CodeReadHandler(scanner_CodeRead);
-            scanner.Start();
 
             data = GetData();
+
+            try
+            {
+                scanner.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Er is een fout opgetreden bij het starten van de scanner: "+ex.Message, "Fout in scanner");
+                throw;
+            }
+
         }
 
         void scanner_CodeRead(string code)
@@ -59,7 +69,9 @@ namespace BarcodeScanner
             if (parts[0].ToUpper() == "QR-CODE")
             {
                 string idStr = parts[1];
-                int id = int.Parse(idStr);
+
+                int id = -1;
+                int.TryParse(idStr, out id);
                 Console.WriteLine("ID = " + id.ToString());
                 try
                 {
@@ -67,6 +79,7 @@ namespace BarcodeScanner
                     DataRow row = prijzen.Rows[id-1];
                     object item = row[0];
 
+                    Console.Beep();
                     PrijsDisplay.Text = item.ToString();
                 }
                 catch (Exception e)
@@ -80,7 +93,13 @@ namespace BarcodeScanner
 
         private DataSet GetData()
         {
-            DataSet set = ExcelDataReader.exceldata(@"Prizes.xlsx");
+            string prizeFile = @"Prizes.xlsx";
+            FileInfo prizes = new FileInfo(prizeFile);
+            if (!prizes.Exists)
+            {
+                throw new FileNotFoundException("Geen bestand met prijzen gevonden op " + prizes.FullName, prizes.FullName);
+            }
+            DataSet set = ExcelDataReader.exceldata(prizeFile);
 
             DataTable klein = set.Tables["Klein"];
             

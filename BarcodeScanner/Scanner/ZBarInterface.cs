@@ -27,6 +27,7 @@ namespace BarcodeScanner.Scanner
 
         ~ZBarInterface()
         {
+            worker.Abort();
             reader.Close();
         }
 
@@ -38,17 +39,39 @@ namespace BarcodeScanner.Scanner
 
         public void Stop()
         {
-            worker.Abort();
+            try
+            {
+                reader.Kill();
+                reader.Close();
+                worker.Abort();
+            }
+            catch (Exception e)
+            {
+            }
         }
 
         private void Run()
         {
+            FileInfo zbarfile = new FileInfo(processString);
+            if (!zbarfile.Exists)
+            {
+                throw new FileNotFoundException("Het programma ZBar was niet gevonden op "+processString, processString);
+            }
+            
             ProcessStartInfo zbarStart = new ProcessStartInfo(processString);
             zbarStart.RedirectStandardOutput = true;
             zbarStart.UseShellExecute = false;
             zbarStart.CreateNoWindow = false;
 
-            reader = Process.Start(zbarStart);
+            try
+            {
+                reader = Process.Start(zbarStart);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
             while (true)
             {
                 string line = "";
