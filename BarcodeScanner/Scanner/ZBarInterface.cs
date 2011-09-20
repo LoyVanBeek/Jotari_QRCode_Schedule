@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace BarcodeScanner.Scanner
 {
-    public class ZBarInterface : ICodeReader
+    public class ZBarInterface : ICodeReader, IDisposable
     {
         public event CodeReadHandler CodeRead;
 
@@ -39,6 +39,15 @@ namespace BarcodeScanner.Scanner
         public void Stop()
         {
             worker.Abort();
+            try
+            {
+                reader.Kill();
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine(e);
+            }
+            reader.Close();
         }
 
         private void Run()
@@ -73,5 +82,14 @@ namespace BarcodeScanner.Scanner
             }
             reader.Close();
         }
+
+        #region IDisposable Members
+
+        public void Dispose()
+        {
+            Stop();
+        }
+
+        #endregion
     }
 }

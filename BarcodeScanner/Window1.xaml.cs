@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.IO;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Threading;
 using BarcodeScanner.Data;
 using BarcodeScanner.DataLookup;
 using BarcodeScanner.Scanner;
-using System.Windows.Controls;
 
 namespace BarcodeScanner
 {
@@ -43,6 +41,17 @@ namespace BarcodeScanner
             scanner.Start();
 
             schedule = GetSchedule();
+
+            #region fill comboboxes
+            for (int k = 1; k < 40; k++)
+            {
+                groupSelector.Items.Add("Klein" + k.ToString());
+            }
+            for (int g = 1; g < 40; g++)
+            {
+                groupSelector.Items.Add("Groot" + g.ToString());
+            }
+            #endregion
         }
 
         void scanner_CodeRead(string code)
@@ -59,37 +68,28 @@ namespace BarcodeScanner
             if (parts[0].ToUpper() == "QR-CODE")
             {
                 string id = parts[1];
-                DateTime now = DateTime.Now;
+                DateTime time = SetSelectedDate(DateTime.Now);
 
-                string day = (comboBox1.SelectedValue as ComboBoxItem).Content.ToString();
-                if (day == "Zaterdag")
-                {
-                    now = new DateTime(2011, 10, 15, now.Hour, now.Minute, now.Second);
-                }
-                else if (day == "Zondag")
-                {
-                    now = new DateTime(2011, 10, 16, now.Hour, now.Minute, now.Second);
-                }
-                else
-                {
-                    //This means auto, so no change
-                }
-
-                Activity acti= null;
-                try
-                {
-                    ActivityTimeLine atl = schedule[id];
-                    acti = atl[now];
-                }
-                catch (KeyNotFoundException)
-                {
-                    acti = new Activity("Onbekend, vraag de leiding", new DateTime(), new DateTime(), "");
-                }
-
-                Console.Beep();
-
-                displayActivity(id, acti);
+                TryDisplayActivity(time, id);
             }
+        }
+
+        private DateTime SetSelectedDate(DateTime time)
+        {
+            string day = (daySelector.SelectedValue as ComboBoxItem).Content.ToString();
+            if (day == "Zaterdag")
+            {
+                time = new DateTime(2011, 10, 15, time.Hour, time.Minute, time.Second);
+            }
+            else if (day == "Zondag")
+            {
+                time = new DateTime(2011, 10, 16, time.Hour, time.Minute, time.Second);
+            }
+            else
+            {
+                //This means auto, so no change
+            }
+            return time;
         }
 
         private void displayActivity(string group, Activity activity)
@@ -143,6 +143,120 @@ namespace BarcodeScanner
             }
 
             return schedule;
+        }
+
+        #region UpDownControl
+        private void txtNum1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                string origTxt = txtNum1.Text;
+                int orig = int.Parse(origTxt);
+                txtNum1.Text = orig.ToString();
+            }
+            catch (FormatException)
+            {
+                txtNum1.Text = (0).ToString();
+            }
+        }
+
+        private void cmdUp1_Click(object sender, RoutedEventArgs e)
+        {
+            string origTxt = txtNum1.Text;
+            int orig = int.Parse(origTxt);
+            orig++;
+
+            if (orig > 23)
+            {
+                orig = 0;
+            }
+
+            txtNum1.Text = orig.ToString();
+        }
+
+        private void cmdDown1_Click(object sender, RoutedEventArgs e)
+        {
+            string origTxt = txtNum1.Text;
+            int orig = int.Parse(origTxt);
+            orig--;
+            if (orig < 0)
+            {
+                orig = 23;
+            }
+            txtNum1.Text = orig.ToString();
+        }
+
+        private void txtNum2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                string origTxt = txtNum2.Text;
+                int orig = int.Parse(origTxt);
+                txtNum2.Text = orig.ToString();
+            }
+            catch (FormatException)
+            {
+                txtNum2.Text = (0).ToString();
+            }
+        }
+
+        private void cmdUp2_Click(object sender, RoutedEventArgs e)
+        {
+            string origTxt = txtNum2.Text;
+            int orig = int.Parse(origTxt);
+            orig++;
+
+            if (orig > 59)
+            {
+                orig = 0;
+            }
+            txtNum2.Text = orig.ToString();
+        }
+
+        private void cmdDown2_Click(object sender, RoutedEventArgs e)
+        {
+            string origTxt = txtNum2.Text;
+            int orig = int.Parse(origTxt);
+            orig--;
+            if (orig < 0)
+            {
+                orig = 59;
+            }
+            txtNum2.Text = orig.ToString();
+        } 
+        #endregion
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string hourStr = txtNum1.Text;
+            int hour = int.Parse(hourStr);
+            string minStr = txtNum2.Text;
+            int min = int.Parse(minStr);
+
+            DateTime selected = new DateTime(2011, 10, 15, hour, min, 00);
+            DateTime time = SetSelectedDate(selected);
+
+            string groupID = groupSelector.SelectedItem.ToString();
+
+            TryDisplayActivity(time, groupID);
+        }
+
+        private void TryDisplayActivity(DateTime time, string groupID)
+        {
+            Activity acti = null;
+            try
+            {
+                ActivityTimeLine atl = schedule[groupID];
+                acti = atl[time];
+            }
+            catch (KeyNotFoundException)
+            {
+                acti = new Activity("Onbekend, vraag de leiding", new DateTime(), new DateTime(), "");
+            }
+
+            Console.Beep();
+
+            displayActivity(groupID, acti);
         }
     }
 }

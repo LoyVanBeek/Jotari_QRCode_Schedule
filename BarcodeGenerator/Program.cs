@@ -11,6 +11,11 @@ namespace BarcodeGenerator
     {
         static void Main(string[] args)
         {
+            if (args.Length < 3)
+            {
+                Console.WriteLine("GEBRUIK: BarcodeGenerator <aantal Klein> <aantal Groot> <outputbestand>");
+            }
+
             int kleinAmount = int.Parse(args[0]);
             int grootAmount = int.Parse(args[1]);
             string outfile = args[2];

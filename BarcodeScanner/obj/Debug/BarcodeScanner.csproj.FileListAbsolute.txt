@@ -54,3 +54,6 @@ D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\zh-CN\Em
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\zh-CN\ZedGraph.resources.dll
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\obj\Debug\BarcodeScanner_Content.g.cs
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\schedule.xlsx
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\logoSB.gif
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\logoSB.ico
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\WPFToolkit.Extended.dll

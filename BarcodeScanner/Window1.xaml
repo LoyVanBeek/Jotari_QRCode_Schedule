@@ -1,6 +1,7 @@
 ﻿<Window x:Class="BarcodeScanner.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
     Title="JOTARI Programma" Height="800" Width="1000"
     WindowState="Maximized">
     <!--<DockPanel>-->
@@ -15,34 +16,79 @@
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="TextWrapping" Value="Wrap"/>
             </Style>
+            <Style TargetType="{x:Type ComboBox}">
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="Width" Value="200"/>
+            </Style>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
         </StackPanel.Resources>
-        <ComboBox Height="19" Name="comboBox1" Width="161" SelectedIndex="1" Margin="0,0">
-            <ComboBoxItem>Auto</ComboBoxItem>
-            <ComboBoxItem IsSelected="True">Zaterdag</ComboBoxItem>
-            <ComboBoxItem>Zondag</ComboBoxItem>
-        </ComboBox>
+        
+        <!--Manual Controls-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <ComboBox Name="daySelector" SelectedIndex="1" Margin="0,0" FontSize="20"
+                      Height="50">
+                <ComboBoxItem>Auto</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">Zaterdag</ComboBoxItem>
+                <ComboBoxItem>Zondag</ComboBoxItem>
+            </ComboBox>
+
+            <StackPanel Orientation="Horizontal"
+                      Height="50">
+                <TextBox x:Name="txtNum1" Width="50" Text="0" TextChanged="txtNum1_TextChanged"
+                         VerticalAlignment="Center" VerticalContentAlignment="Center"
+                      Height="50"/>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Stretch"
+                      Height="50">
+                    <Button x:Name="cmdUp1" Content="˄" Width="50" Click="cmdUp1_Click" 
+                      Height="25"/>
+                    <Button x:Name="cmdDown1" Content="˅" Width="50" Click="cmdDown1_Click" 
+                      Height="25"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock FontSize="20"
+                      Height="50">:</TextBlock>
+            <StackPanel Orientation="Horizontal"
+                      Height="50">
+                <TextBox x:Name="txtNum2" Width="50" Text="0" TextChanged="txtNum2_TextChanged"
+                         VerticalAlignment="Center" VerticalContentAlignment="Center"
+                      Height="50"/>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Stretch"
+                      Height="50">
+                    <Button x:Name="cmdUp2" Content="˄" Width="50" Click="cmdUp2_Click" 
+                      Height="25"/>
+                    <Button x:Name="cmdDown2" Content="˅" Width="50" Click="cmdDown2_Click" 
+                      Height="25"/>
+                </StackPanel>
+            </StackPanel>
+
+            <ComboBox Name="groupSelector" Margin="0,0" SelectedIndex="0" FontSize="20"
+                      Height="50">
+                <ComboBoxItem>Auto</ComboBoxItem>
+            </ComboBox>
+            <Button Click="Button_Click">Zoek</Button>
+        </StackPanel>
+        
+        <!--Group-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Label>Groep</Label>
             <Separator Width="50" Opacity="0" />
             <Label x:Name="groupDisplay" Content="xx"/>
         </StackPanel>
         <Label FontSize="50">gaat naar</Label>
-        <TextBlock x:Name="ActivityDisplay" Text="activiteit"/>
-        <Label FontSize="50">daarna</Label>
-        <TextBlock x:Name="NextActivityDisplay" Text="volgende activiteit"/>
-    </StackPanel>
+        
+        <!--Current activity-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock x:Name="ActivityDisplay" Text="activiteit"/>
+            <Image x:Name="ActivityImage" MaxHeight="200" Margin="10"/>
+        </StackPanel>
 
-    <!--<ListView x:Name="scheduleView" DockPanel.Dock="Right" Visibility="Collapsed">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Start"
-                                    DisplayMemberBinding="{Binding StartTime}"/>
-                    <GridViewColumn Header="Einde"
-                                    DisplayMemberBinding="{Binding EndTime}" />
-                    <GridViewColumn Header="Activiteit"
-                                    DisplayMemberBinding="{Binding Name}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-    </DockPanel>-->
+        <!--Next activity-->
+        <Label FontSize="50">daarna</Label>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock x:Name="NextActivityDisplay" Text="volgende" FontSize="80"/>
+            <Image x:Name="NextActivityImage" MaxHeight="160" Margin="10"/>
+        </StackPanel>
+    </StackPanel>
 </Window>

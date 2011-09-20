@@ -47,3 +47,5 @@ D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\obj\Debug\ResolveAssemblyRe
 D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\obj\Debug\Tests.dll
 D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\obj\Debug\Tests.pdb
 D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\schedule.xlsx
+D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\logoSB.gif
+D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\logoSB.ico
