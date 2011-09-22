@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.OleDb;
+using BarcodeScanner.Data;
 
 namespace BarcodeScanner.DataLookup
 {
@@ -22,7 +23,7 @@ namespace BarcodeScanner.DataLookup
 
         Dictionary<int, string> columnActivities;
 
-       public string Filename {get; private set;}
+        public string Filename { get; private set; }
         DataSet data;
 
         int blockDuration = 20;
@@ -66,7 +67,7 @@ namespace BarcodeScanner.DataLookup
                         break;
                     }
                 }
-            } 
+            }
             #endregion
 
             string activity = "Onbekend, vraag de leiding";
@@ -91,24 +92,32 @@ namespace BarcodeScanner.DataLookup
             return activity;
         }
 
-        public static List<int> ParseCellContents(string p)
+        public static List<int> ParseCellContents(object _p)
         {
-            if (p.Contains('+'))//if the cell contains a +, then in contains groups
+            string p = _p as string;
+            if (!string.IsNullOrEmpty(p))
             {
-                //p = p.Replace(' ', ''); //remove spaces
-                List<string> parts = new List<string>(p.Split('+'));
-                List<int> numbers = new List<int>();
-                foreach (string part in parts)
+                if (p.Contains('+'))//if the cell contains a +, then in contains groups
                 {
-                    string numStr = part.Trim();
-                    int num;
-                    bool ok = int.TryParse(numStr, out num);
-                    if (ok)
+                    //p = p.Replace(' ', ''); //remove spaces
+                    List<string> parts = new List<string>(p.Split('+'));
+                    List<int> numbers = new List<int>();
+                    foreach (string part in parts)
                     {
-                        numbers.Add(num);
+                        string numStr = part.Trim();
+                        int num;
+                        bool ok = int.TryParse(numStr, out num);
+                        if (ok)
+                        {
+                            numbers.Add(num);
+                        }
                     }
+                    return numbers;
                 }
-                return numbers;
+                else
+                {
+                    return null;
+                }
             }
             else
             {
@@ -164,6 +173,94 @@ namespace BarcodeScanner.DataLookup
             excelConn.Close();
 
             return ds;
+        }
+
+        public Dictionary<string, ActivityTimeLine> GenerateActivityTimeLines(int amountKlein, int amountGroot)
+        {
+            Dictionary<string, ActivityTimeLine> schedule = new Dictionary<string, ActivityTimeLine>();
+
+            #region init
+            for (int i = 1; i <= amountKlein; i++)
+            {
+                schedule.Add("Klein" + i.ToString(), new ActivityTimeLine());
+            }
+            for (int i = 1; i <= amountGroot; i++)
+            {
+                schedule.Add("Groot" + i.ToString(), new ActivityTimeLine());
+            }
+            #endregion
+
+            //Klein:
+            DataTable table = data.Tables["Klein"];
+
+            #region get row for time
+            int rowIndex = -1;
+            //FOR ALL TIMES:
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                object start = table.Rows[i][STARTTIMEINDEX];
+                object end = table.Rows[i][ENDTIMEINDEX];
+                DateTime? iStartTime = start as DateTime?;
+                DateTime? iEndTime = end as DateTime?;
+
+                if (iStartTime != null && iEndTime != null)
+                #region IF THE TIMES AREN'T NULL:
+                {
+                    rowIndex = i;
+                    string activity = "Onbekend, vraag de leiding";
+                    #region FOR EACH ACTIVITY (which happens to be in columns)
+                    foreach (int column in columnActivities.Keys)
+                    {
+                        //CHECK OUT WHICH GROUPS PARTICIPATE
+                        List<int> groupsForColumn = ParseCellContents(table.Rows[rowIndex][column]);
+
+                        #region IF THE ACTIVITY IS FOR ALL:
+                        if (groupsForColumn == null)
+                        {
+                            activity = (string)GetFromRowSpan(table, rowIndex, column); //TODO: This doesnt work for cells which are overlapped by a cell with a rowspan > 1
+                            var klein = from groupname in schedule.Keys
+                                        where groupname.Contains("Klein")
+                                        select groupname;
+                            foreach (string groupname in klein)
+                            {
+                                schedule[groupname].Add(new Activity(activity, iStartTime.Value, iEndTime.Value, ""));
+                            }
+                            break;
+                        }
+                        #endregion
+                        else
+                        {
+                            activity = columnActivities[column];
+                            #region FOR EACH PARTICIPATING GROUP:
+                            foreach (int group in groupsForColumn)
+                            {
+                                string groupName = "Klein" + group.ToString();
+                                Activity act = new Activity(activity, iStartTime.Value, iEndTime.Value, "");
+                                schedule[groupName].Add(act);
+                                //ADD THE ACTIVITY TO THEIR TIMELINE
+                            }
+                            #endregion
+                        }
+                    }
+                    #endregion
+                }
+                #endregion
+            }
+            #endregion
+
+            return schedule;
+        }
+
+        private static object GetFromRowSpan(DataTable table, int rowIndex, int column)
+        {
+            object item = table.Rows[rowIndex][column];
+            DBNull dbItem = item as DBNull;
+            if (dbItem != null)
+            {
+                object above = GetFromRowSpan(table, rowIndex, column - 1);
+                return above;
+            }
+            return item;
         }
     }
 }

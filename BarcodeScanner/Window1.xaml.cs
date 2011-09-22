@@ -39,19 +39,18 @@ namespace BarcodeScanner
         {
             excel = new ExcelDataReader(@"planning kinderen en leiding.xlsx");
 
-
             scanner = new ZBarInterface();
             scanner.CodeRead += new CodeReadHandler(scanner_CodeRead);
             scanner.Start();
 
-            schedule = GetSchedule();
+            schedule = excel.GenerateActivityTimeLines(36, 48);//GetSchedule();
 
             #region fill comboboxes
-            for (int k = 1; k < 40; k++)
+            for (int k = 1; k <= 36; k++)
             {
                 groupSelector.Items.Add("Klein" + k.ToString());
             }
-            for (int g = 1; g < 40; g++)
+            for (int g = 1; g <= 48; g++)
             {
                 groupSelector.Items.Add("Groot" + g.ToString());
             }

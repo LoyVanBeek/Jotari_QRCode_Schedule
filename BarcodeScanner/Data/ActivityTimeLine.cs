@@ -24,7 +24,7 @@ namespace BarcodeScanner.Data
             foreach(Activity activity in this)
             {
                 //if (Utilities.Later(now, activity.StartTime) && Utilities.Later(activity.EndTime, now))
-                if ((now > activity.StartTime && activity.EndTime > now))
+                if ((now >= activity.StartTime && activity.EndTime > now))
                 {
                     act = activity;
                     break;
