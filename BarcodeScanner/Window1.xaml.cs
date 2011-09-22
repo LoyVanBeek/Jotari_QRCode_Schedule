@@ -116,7 +116,7 @@ namespace BarcodeScanner
         {
             Dictionary<string, ActivityTimeLine> schedule = new Dictionary<string, ActivityTimeLine>();
 
-            DataSet set = ExcelDataReader.exceldata(@"schedule.xlsx");
+            DataSet set = ExcelDataReader_Old.exceldata(@"schedule.xlsx");
 
             DataTable klein = set.Tables["Klein"];
             DataRow kleinGroupNrs = klein.Rows[1]; //this is the 2nd filled row

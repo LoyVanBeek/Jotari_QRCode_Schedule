@@ -71,7 +71,7 @@ namespace Tests
         public void LookupTest()
         {
             string filename = @"C:\Documents and Settings\L.vBeek\My Documents\Scouting\Jotari\jotari planning 2011 laatste versie.xlsx"; // TODO: Initialize to an appropriate value
-            ExcelDataReader target = new ExcelDataReader(filename);
+            ExcelDataReader_Old target = new ExcelDataReader_Old(filename);
             int groupnumber = 5;
             DateTime time = new DateTime(1899,12,30,11,30,00);
             string expected = "radio"; // TODO: Initialize to an appropriate value
