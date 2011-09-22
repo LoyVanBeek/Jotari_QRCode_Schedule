@@ -49,3 +49,5 @@ D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\obj\Debug\Tests.pdb
 D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\schedule.xlsx
 D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\logoSB.gif
 D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\logoSB.ico
+D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\planning kinderen en leiding.xlsx
+D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\WPFToolkit.Extended.dll

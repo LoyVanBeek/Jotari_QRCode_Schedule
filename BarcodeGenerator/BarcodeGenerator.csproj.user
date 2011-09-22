@@ -1,5 +1,5 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartArguments>16 18 codes.html</StartArguments>
+    <StartArguments>36 48 codes_2.html</StartArguments>
   </PropertyGroup>
 </Project>

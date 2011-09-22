@@ -32,9 +32,10 @@ namespace BarcodeGenerator
                 html.RenderEndTag();
                 html.AddStyleAttribute(HtmlTextWriterStyle.FontFamily, "Arial");
                 html.AddStyleAttribute(HtmlTextWriterStyle.FontSize, "20");
+                html.Write(html.NewLine);
                 html.RenderBeginTag(HtmlTextWriterTag.Body);
                     //html.RenderBeginTag(HtmlTextWriterTag.Table);
-                        WriteQrCodes(html, kleinAmount, grootAmount); 
+                        WriteQrCodes(html, kleinAmount, grootAmount, 3); 
                     //html.RenderEndTag();
                 html.RenderEndTag();
             html.RenderEndTag();
@@ -42,29 +43,50 @@ namespace BarcodeGenerator
             writer.Close();
         }
 
-        private static void WriteQrCodes(HtmlTextWriter html, int kleinAmount, int grootAmount)
+        private static void WriteQrCodes(HtmlTextWriter html, int kleinAmount, int grootAmount, int repeat)
         {
-//            string codeLine = @"
-//                <tr>
-//                    <td style='border: solid 1px; text-align: center;'>
-//                        <div>
-//                        <img src='http://qrcode.kaywa.com/img.php?s=8&d={0}' alt='qrcode'/>
-//				        <br>
-//				        {0}
-//                        </div>
-//                    </td>
-//                </tr>";
-            
-            for (int klein = 1; klein <= kleinAmount; klein++)
-            {
-                string htmlLine = GroupDiv("Klein", klein);//String.Format(codeLine, "Klein" + klein.ToString());
-                html.Write(htmlLine);
-            } 
-            for (int groot = 1; groot <= grootAmount; groot++)
-            {
-                string htmlLine = GroupDiv("Groot", groot);//String.Format(codeLine, "Groot" + groot.ToString());
-                html.Write(htmlLine);
-            }
+            html.RenderBeginTag(HtmlTextWriterTag.Table);
+
+                for (int klein = 1; klein <= kleinAmount; klein++)
+                {
+                    html.RenderBeginTag(HtmlTextWriterTag.Tr);
+                    for (int i=0; i<repeat; i++)
+                    {
+                        html.RenderBeginTag(HtmlTextWriterTag.Td);
+                        GroupDiv(html, "Klein", klein);
+                        html.RenderEndTag();
+                    }
+                    html.RenderEndTag();
+                } 
+                for (int groot = 1; groot <= grootAmount; groot++)
+                {
+                    html.RenderBeginTag(HtmlTextWriterTag.Tr);
+                    for (int i = 0; i < repeat; i++)
+                    {
+                        html.RenderBeginTag(HtmlTextWriterTag.Td);
+                        GroupDiv(html, "Groot", groot);
+                        html.RenderEndTag();
+                    }
+                    html.RenderEndTag();
+                }
+
+            html.RenderEndTag();
+        }
+
+        private static string GroupDiv(string category, int number, int x, int y)
+        {
+            string code = @"<div style='border: solid 1px; 
+                                        text-align: center; 
+                                        width:  300px; 
+                                        margin: 10px
+                                        top:    {1}px'
+                                        left:   {2}px'>
+                        <img src='http://qrcode.kaywa.com/img.php?s=8&d={0}' alt='qrcode'/>
+				        <br>
+				            {0}
+                        </div>";
+            string html = String.Format(code, category + number.ToString(), y, x);
+            return html;
         }
 
         private static string GroupDiv(string category, int number)
@@ -76,6 +98,26 @@ namespace BarcodeGenerator
                         </div>";
             string html = String.Format(code, category + number.ToString());
             return html;
+        }
+
+        private static void GroupDiv(HtmlTextWriter html, string category, int number)
+        {
+            html.AddStyleAttribute("border",      "solid 2px");
+            html.AddStyleAttribute("text-align",  "center");
+            html.AddStyleAttribute("width",       "320px");
+            html.AddStyleAttribute("margin",      "10px");
+            html.RenderBeginTag(HtmlTextWriterTag.Div);
+
+            string imgSource = string.Format("http://qrcode.kaywa.com/img.php?s=8&d={0}", category + number.ToString());
+            html.AddAttribute("src", imgSource);
+            html.RenderBeginTag(HtmlTextWriterTag.Img); 
+            html.RenderEndTag();
+
+            html.RenderBeginTag(HtmlTextWriterTag.Br);
+            html.RenderEndTag();
+            html.Write(category + number.ToString());
+
+            html.RenderEndTag();
         }
     }
 }
