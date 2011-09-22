@@ -70,7 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityTimeLineTest.cs" />
-    <Compile Include="ExcelDataReaderTest.cs" />
+    <Compile Include="ExcelDataReader_OldTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UtilitiesTest.cs" />
   </ItemGroup>
