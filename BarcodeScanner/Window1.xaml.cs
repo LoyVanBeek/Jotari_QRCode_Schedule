@@ -21,6 +21,7 @@ namespace BarcodeScanner
 
         ICodeReader scanner;
         ExcelDataReader excel;
+        DispatcherTimer timer;
 
         public Window1()
         {
@@ -37,6 +38,12 @@ namespace BarcodeScanner
 
         void Window1_Loaded(object sender, RoutedEventArgs e)
         {
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 1, 0);
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+            timer_Tick(null, null);
+
             excel = new ExcelDataReader(@"planning kinderen en leiding.xlsx");
 
             scanner = new ZBarInterface();
@@ -55,6 +62,13 @@ namespace BarcodeScanner
                 groupSelector.Items.Add("Groot" + g.ToString());
             }
             #endregion
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+            txtNum1.Text = now.Hour.ToString();
+            txtNum2.Text = now.Minute.ToString();
         }
 
         void scanner_CodeRead(string code)
