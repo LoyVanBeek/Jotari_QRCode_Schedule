@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLookup\ExcelDataReader.cs" />
+    <Compile Include="DataLookup\ExcelDataReader_Old.cs" />
     <Compile Include="DataLookup\IDataReader.cs" />
     <Compile Include="Data\Activity.cs" />
     <Compile Include="Data\ActivityTimeLine.cs" />
@@ -117,6 +118,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="schedule.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="planning kinderen en leiding.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\Settings.settings">

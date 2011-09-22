@@ -57,3 +57,4 @@ D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\schedule
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\logoSB.gif
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\logoSB.ico
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\WPFToolkit.Extended.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\planning kinderen en leiding.xlsx

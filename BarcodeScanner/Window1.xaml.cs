@@ -20,6 +20,7 @@ namespace BarcodeScanner
         Dictionary<string, ActivityTimeLine> schedule;
 
         ICodeReader scanner;
+        ExcelDataReader excel;
 
         public Window1()
         {
@@ -36,6 +37,9 @@ namespace BarcodeScanner
 
         void Window1_Loaded(object sender, RoutedEventArgs e)
         {
+            excel = new ExcelDataReader(@"planning kinderen en leiding.xlsx");
+
+
             scanner = new ZBarInterface();
             scanner.CodeRead += new CodeReadHandler(scanner_CodeRead);
             scanner.Start();
@@ -257,6 +261,9 @@ namespace BarcodeScanner
             Console.Beep();
 
             displayActivity(groupID, acti);
+
+            string opening = excel.Lookup(26, new DateTime(2011, 10, 15, 9, 50, 00));
+            string klimtoren = excel.Lookup(26, new DateTime(2011, 10, 15, 10, 00, 00));
         }
     }
 }
