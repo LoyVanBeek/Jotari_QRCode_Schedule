@@ -86,6 +86,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleManager.cs" />
     <Compile Include="DataLookup\ExcelDataReader.cs" />
     <Compile Include="DataLookup\ExcelDataReader_Old.cs" />
     <Compile Include="DataLookup\IDataReader.cs" />
@@ -111,6 +112,50 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="C:\Program Files\ZBar\bin\libiconv-2.dll">
+      <Link>ZbarBin\libiconv-2.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Program Files\ZBar\bin\libjpeg-7.dll">
+      <Link>ZbarBin\libjpeg-7.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Program Files\ZBar\bin\libMagickCore-2.dll">
+      <Link>ZbarBin\libMagickCore-2.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Program Files\ZBar\bin\libMagickWand-2.dll">
+      <Link>ZbarBin\libMagickWand-2.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Program Files\ZBar\bin\libpng12-0.dll">
+      <Link>ZbarBin\libpng12-0.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Program Files\ZBar\bin\libtiff-3.dll">
+      <Link>ZbarBin\libtiff-3.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Program Files\ZBar\bin\libxml2-2.dll">
+      <Link>ZbarBin\libxml2-2.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Program Files\ZBar\bin\libzbar-0.dll">
+      <Link>ZbarBin\libzbar-0.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Program Files\ZBar\bin\zbarcam.exe">
+      <Link>ZbarBin\zbarcam.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Program Files\ZBar\bin\zbarimg.exe">
+      <Link>ZbarBin\zbarimg.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Program Files\ZBar\bin\zlib1.dll">
+      <Link>ZbarBin\zlib1.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="logoSB.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -121,6 +166,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="planning kinderen en leiding.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Program Files\ZBar\bin\zbarcam.bat">
+      <Link>ZbarBin\zbarcam.bat</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\Settings.settings">

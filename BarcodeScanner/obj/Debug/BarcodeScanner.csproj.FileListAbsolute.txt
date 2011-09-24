@@ -58,3 +58,15 @@ D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\logoSB.g
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\logoSB.ico
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\WPFToolkit.Extended.dll
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\planning kinderen en leiding.xlsx
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\libiconv-2.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\libjpeg-7.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\libMagickCore-2.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\libMagickWand-2.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\libpng12-0.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\libtiff-3.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\libxml2-2.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\libzbar-0.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\zbarcam.exe
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\zbarimg.exe
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\zlib1.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\zbarcam.bat

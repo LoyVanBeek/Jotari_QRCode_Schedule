@@ -25,6 +25,12 @@ namespace BarcodeScanner
 
         public Window1()
         {
+#if DEBUG
+            ConsoleManager.Show(); 
+#endif
+
+            Console.WriteLine("Creating Window");
+
             Loaded += new RoutedEventHandler(Window1_Loaded);
             InitializeComponent();
 
@@ -38,18 +44,32 @@ namespace BarcodeScanner
 
         void Window1_Loaded(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("Window Loaded");
+
+            MessageBox.Show("Welkom bij de JOTARI!");
+            
+            MessageBox.Show("Welkom bij de JOTARI 2!");
+
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 1, 0);
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
             timer_Tick(null, null);
 
+            Console.WriteLine("Creating ExcelDataReader");
+
             excel = new ExcelDataReader(@"planning kinderen en leiding.xlsx");
+
+            Console.WriteLine("Creating ZBarInterface");
 
             scanner = new ZBarInterface();
             scanner.CodeRead += new CodeReadHandler(scanner_CodeRead);
+
+            Console.WriteLine("Starting Scanner");
             scanner.Start();
 
+
+            Console.WriteLine("Getting schedule from file");
             schedule = excel.GenerateActivityTimeLines(36, 48);//GetSchedule();
 
             #region fill comboboxes

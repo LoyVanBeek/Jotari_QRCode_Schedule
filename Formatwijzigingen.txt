@@ -1,0 +1,3 @@
+Aanpassingen in format programma:
+- Exacte datum ingevuld en formaat correct ingesteld
+- Alle cellen gevuld, geen vertikal overlappende cellen meer.

@@ -32,7 +32,15 @@ namespace BarcodeScanner.DataLookup
         public ExcelDataReader(string filename)
         {
             this.Filename = filename;
-            data = exceldata(filename);
+            try
+            {
+                data = exceldata(filename);
+            }
+            catch (InvalidOperationException ioe)
+            {
+                Console.WriteLine(ioe.Message);
+                throw ioe;
+            }
 
             columnActivities = new Dictionary<int, string>();
             columnActivities.Add(2, "Radio");

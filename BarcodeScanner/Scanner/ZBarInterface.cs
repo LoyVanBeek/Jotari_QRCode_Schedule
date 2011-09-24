@@ -12,7 +12,7 @@ namespace BarcodeScanner.Scanner
     {
         public event CodeReadHandler CodeRead;
 
-        string processString = @"C:\Program Files\ZBar\bin\zbarcam.exe";
+        string processString = @"ZbarBin\zbarcam.exe";//@"C:\Program Files\ZBar\bin\zbarcam.exe";
 
         Thread worker;
         private Process reader;
@@ -52,35 +52,56 @@ namespace BarcodeScanner.Scanner
 
         private void Run()
         {
-            ProcessStartInfo zbarStart = new ProcessStartInfo(processString);
-            zbarStart.RedirectStandardOutput = true;
-            zbarStart.UseShellExecute = false;
-            zbarStart.CreateNoWindow = false;
+            FileInfo fi = new FileInfo(processString);
 
-            reader = Process.Start(zbarStart);
-            while (true)
+            if (fi.Exists)
             {
-                string line = "";
+                ProcessStartInfo zbarStart = new ProcessStartInfo(fi.FullName);
+                zbarStart.RedirectStandardOutput = true;
+                zbarStart.UseShellExecute = false;
+                zbarStart.CreateNoWindow = false;
+
                 try
                 {
-                    line = reader.StandardOutput.ReadLine();
+                    reader = Process.Start(zbarStart);
 
-                    //System.Console.WriteLine(line);
-                }
-                catch (IOException)
-                {
-                    break;
-                }
-
-                if (!String.IsNullOrEmpty(line))
-                {
-                    if (CodeRead != null)
+                    while (true)
                     {
-                        CodeRead(line);
+                        string line = "";
+                        try
+                        {
+                            line = reader.StandardOutput.ReadLine();
+
+                            //System.Console.WriteLine(line);
+                        }
+                        catch (IOException)
+                        {
+                            break;
+                        }
+
+                        if (!String.IsNullOrEmpty(line))
+                        {
+                            if (CodeRead != null)
+                            {
+                                CodeRead(line);
+                            }
+                        }
                     }
                 }
+                catch (InvalidOperationException ioe)
+                {
+                    Console.WriteLine(ioe.Message);
+                    throw ioe;
+                }
+                finally
+                {
+                    reader.Close();
+                }
             }
-            reader.Close();
+            else
+            {
+                throw new FileNotFoundException("ZBar could not be found, so no codes can be read.", fi.FullName);
+            }
         }
 
         #region IDisposable Members
