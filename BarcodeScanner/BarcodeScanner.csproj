@@ -156,6 +156,102 @@
       <Link>ZbarBin\zlib1.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\avondeten.png" />
+    <Resource Include="Images\avondspel.png" />
+    <Resource Include="Images\bos.png" />
+    <Resource Include="Images\gezamenlijk spel.jpg" />
+    <Resource Include="Images\hunt.jpg" />
+    <Resource Include="Images\jota.gif" />
+    <Resource Include="Images\joti-2.gif" />
+    <Resource Include="Images\joti.jpg" />
+    <Resource Include="Images\klimtoren.gif" />
+    <Resource Include="Images\lunch.jpg" />
+    <Resource Include="Images\ontbijt.jpg" />
+    <Resource Include="Images\opening.jpg" />
+    <Resource Include="Images\opstaan en spullen opruimen.jpg" />
+    <Content Include="Images\png\avondeten.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\avondspel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\bos.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\gezamenlijk spel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\hunt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\jota.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\joti-2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\joti.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\klimtoren.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\lunch.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\ontbijt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\opening.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\opstaan en spullen opruimen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\radio.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\slapen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\sluiting.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\spullen klaarleggen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\tenten opzetten.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\tocht van daar naar hier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\tocht van hier naar daar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\tv.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\veld.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\wassen, plassen en naar bed - 2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\png\wassen, plassen en naar bed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\radio.png" />
+    <Resource Include="Images\slapen.jpg" />
+    <Resource Include="Images\sluiting.jpg" />
+    <Resource Include="Images\spullen klaarleggen.jpg" />
+    <Resource Include="Images\tenten opzetten.GIF" />
+    <Resource Include="Images\tocht van daar naar hier.gif" />
+    <Resource Include="Images\tocht van hier naar daar.gif" />
+    <Resource Include="Images\tv.gif" />
+    <Resource Include="Images\veld.gif" />
+    <Resource Include="Images\wassen, plassen en naar bed - 2.jpg" />
+    <Resource Include="Images\wassen, plassen en naar bed.jpeg" />
     <Content Include="logoSB.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -70,3 +70,27 @@ D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\zbarimg.exe
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\zlib1.dll
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\ZbarBin\zbarcam.bat
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\avondeten.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\avondspel.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\bos.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\gezamenlijk spel.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\hunt.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\jota.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\joti-2.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\joti.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\klimtoren.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\lunch.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\ontbijt.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\opening.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\opstaan en spullen opruimen.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\radio.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\slapen.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\sluiting.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\spullen klaarleggen.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\tenten opzetten.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\tocht van daar naar hier.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\tocht van hier naar daar.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\tv.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\veld.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\wassen, plassen en naar bed - 2.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\wassen, plassen en naar bed.png

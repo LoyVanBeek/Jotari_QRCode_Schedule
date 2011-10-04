@@ -9,6 +9,9 @@ using System.Windows.Threading;
 using BarcodeScanner.Data;
 using BarcodeScanner.DataLookup;
 using BarcodeScanner.Scanner;
+using System.Windows.Media;
+using System.IO;
+using System.Windows.Media.Imaging;
 
 namespace BarcodeScanner
 {
@@ -23,6 +26,8 @@ namespace BarcodeScanner
         ExcelDataReader excel;
         DispatcherTimer timer;
 
+        Dictionary<string, ImageSource> activityImages;
+
         public Window1()
         {
 #if DEBUG
@@ -30,6 +35,8 @@ namespace BarcodeScanner
 #endif
 
             Console.WriteLine("Creating Window");
+
+            activityImages = new Dictionary<string, ImageSource>();
 
             Loaded += new RoutedEventHandler(Window1_Loaded);
             InitializeComponent();
@@ -46,9 +53,11 @@ namespace BarcodeScanner
         {
             Console.WriteLine("Window Loaded");
 
+#if DEBUG
             MessageBox.Show("Welkom bij de JOTARI!");
-            
-            MessageBox.Show("Welkom bij de JOTARI 2!");
+
+            MessageBox.Show("Welkom bij de JOTARI 2!"); 
+#endif
 
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 1, 0);
@@ -136,6 +145,7 @@ namespace BarcodeScanner
             groupDisplay.Content = group;
 
             ActivityDisplay.Text = activity.Name;
+            SetActivityImage(activity.Name.ToLower());
 
             try
             {
@@ -297,6 +307,34 @@ namespace BarcodeScanner
 
             string opening = excel.Lookup(26, new DateTime(2011, 10, 15, 9, 50, 00));
             string klimtoren = excel.Lookup(26, new DateTime(2011, 10, 15, 10, 00, 00));
+        }
+
+        private void SetActivityImage(string activity)
+        {
+            if(activityImages.ContainsKey(activity))
+            {
+                ActivityImage.Source = activityImages[activity];
+            }
+            else
+            {
+                DirectoryInfo dir = new DirectoryInfo(@"Images/png/");
+                Console.WriteLine("Getting images from: ", dir.FullName);
+                var files = dir.GetFiles(activity+".png", SearchOption.TopDirectoryOnly);
+
+                if (files.Length >= 1)
+                {
+                    string fileName = files[0].FullName;
+                    ImageSource src = new BitmapImage(new Uri(fileName));
+
+                    activityImages[activity] = src;
+
+                    ActivityImage.Source = src;
+                }
+                else
+                {
+                    ActivityImage.Source = null;
+                }
+            }
         }
     }
 }
