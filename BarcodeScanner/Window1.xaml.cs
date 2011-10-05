@@ -54,9 +54,9 @@ namespace BarcodeScanner
             Console.WriteLine("Window Loaded");
 
 #if DEBUG
-            MessageBox.Show("Welkom bij de JOTARI!");
+            //MessageBox.Show("Welkom bij de JOTARI!");
 
-            MessageBox.Show("Welkom bij de JOTARI 2!"); 
+            //MessageBox.Show("Welkom bij de JOTARI 2!"); 
 #endif
 
             timer = new DispatcherTimer();

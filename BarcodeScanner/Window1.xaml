@@ -79,16 +79,16 @@
         <Label FontSize="50">gaat naar</Label>
         
         <!--Current activity-->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock x:Name="ActivityDisplay" Text="activiteit"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="ActivityDisplay" Text="activiteit" VerticalAlignment="Center"/>
             <Image x:Name="ActivityImage" MaxHeight="200" Margin="10"/>
         </StackPanel>
 
         <!--Next activity-->
         <Label FontSize="50">daarna</Label>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock x:Name="NextActivityDisplay" Text="volgende" FontSize="80"/>
-            <Image x:Name="NextActivityImage" MaxHeight="160" Margin="10"/>
+            <TextBlock x:Name="NextActivityDisplay" Text="volgende" FontSize="80" VerticalAlignment="Center"/>
+            <!--<Image x:Name="NextActivityImage" MaxHeight="160" Margin="10"/>-->
         </StackPanel>
     </StackPanel>
 </Window>
