@@ -21,7 +21,6 @@ namespace BarcodeScanner.DataLookup
         const int VELD = 7;
         const int BOS = 8;
 
-        Dictionary<int, string> columnActivities;
         Dictionary<string, Dictionary<int, string>> TypeDayActivityDict;
 
         public string Filename { get; private set; }
@@ -43,14 +42,14 @@ namespace BarcodeScanner.DataLookup
                 throw ioe;
             }
 
-            columnActivities = new Dictionary<int, string>();
-            columnActivities.Add(2, "Radio");
-            columnActivities.Add(3, "Jota");
-            columnActivities.Add(4, "TV");
-            columnActivities.Add(5, "Joti");
-            columnActivities.Add(6, "Klimtoren");
-            columnActivities.Add(7, "Veld");
-            columnActivities.Add(8, "Bos");
+            //columnActivities = new Dictionary<int, string>();
+            //columnActivities.Add(2, "Radio");
+            //columnActivities.Add(3, "Jota");
+            //columnActivities.Add(4, "TV");
+            //columnActivities.Add(5, "Joti");
+            //columnActivities.Add(6, "Klimtoren");
+            //columnActivities.Add(7, "Veld");
+            //columnActivities.Add(8, "Bos");
 
             Dictionary<int, string> klein_zaterdag = new Dictionary<int, string>();
             klein_zaterdag.Add(2, "Radio");
@@ -99,6 +98,8 @@ namespace BarcodeScanner.DataLookup
         {
             DataTable table = data.Tables["Klein"];
 
+            Dictionary<int, string> columnActivities = null;
+
             #region get row for time
             int rowIndex = -1;
             for (int i = 0; i < table.Rows.Count; i++)
@@ -113,6 +114,7 @@ namespace BarcodeScanner.DataLookup
                     if (time >= iStartTime && time < iEndTime)
                     {
                         rowIndex = i;
+                        columnActivities = GetActivityMapping(iStartTime.Value, "Klein");
                         break;
                     }
                 }
@@ -268,6 +270,7 @@ namespace BarcodeScanner.DataLookup
                     rowIndex = i;
                     string activity = "Onbekend, vraag de leiding";
                     #region FOR EACH ACTIVITY (which happens to be in columns)
+                    Dictionary<int, string> columnActivities = GetActivityMapping(iStartTime.Value, groupType);
                     foreach (int column in columnActivities.Keys)
                     {
                         //CHECK OUT WHICH GROUPS PARTICIPATE
@@ -289,9 +292,9 @@ namespace BarcodeScanner.DataLookup
                         #endregion
                         else
                         {
-                            //activity = columnActivities[column];
+                            activity = columnActivities[column];
                             //string activity2 = SearchActivity(table, rowIndex, column);
-                            activity = LookupActivity(iStartTime.Value, groupType, column);
+                            //activity = LookupActivity(iStartTime.Value, groupType, column);
                             #region FOR EACH PARTICIPATING GROUP:
                             foreach (int group in groupsInCell)
                             {
@@ -331,30 +334,38 @@ namespace BarcodeScanner.DataLookup
         private string LookupActivity(DateTime day, string groupSort, int column)
         {
             string activity = "Onbekend, vraag de leiding";
+            Dictionary<int, string> mapping = GetActivityMapping(day, groupSort);
+
+            activity = mapping[column];
+            return activity;
+        }
+
+        private Dictionary<int, string> GetActivityMapping(DateTime day, string groupSort)
+        {
+            Dictionary<int, string> mapping = null;
             if (day.DayOfWeek == DayOfWeek.Saturday)
             {
                 if (groupSort == "Klein")
                 {
-                    activity = TypeDayActivityDict["klein_zaterdag"][column];
+                    mapping = TypeDayActivityDict["klein_zaterdag"];
                 }
                 else if (groupSort == "Groot")
                 {
-                    activity = TypeDayActivityDict["groot_zaterdag"][column];
+                    mapping = TypeDayActivityDict["groot_zaterdag"];
                 }
             }
             else if (day.DayOfWeek == DayOfWeek.Sunday)
             {
                 if (groupSort == "Klein")
                 {
-                    activity = TypeDayActivityDict["klein_zondag"][column];
+                    mapping = TypeDayActivityDict["klein_zondag"];
                 }
                 else if (groupSort == "Groot")
                 {
-                    activity = TypeDayActivityDict["groot_zondag"][column];
+                    mapping = TypeDayActivityDict["groot_zondag"];
                 }
             }
-
-            return activity;
+            return mapping;
         }
 
         private static object GetFromRowSpan(DataTable table, int rowIndex, int column)

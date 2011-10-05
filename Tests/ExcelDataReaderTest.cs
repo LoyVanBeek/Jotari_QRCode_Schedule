@@ -110,7 +110,7 @@ namespace Tests
             int groupnumber = 26;
             DateTime time = new DateTime(2011, 10, 15, 10, 00, 00);//(15-10-2011  10:00:00); 
             string expected = "Klimtoren"; //See cell G6,7,8 on Kleine speltakken
-            string actual = target.Lookup(groupnumber, time);
+            string actual = target.Lookup(groupnumber, time); //TODO: Works only for group Klein
 
             Assert.AreEqual(expected, actual);
         }
