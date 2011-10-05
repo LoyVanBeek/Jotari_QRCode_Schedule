@@ -110,6 +110,21 @@ namespace BarcodeScanner.Data
             return atl;
         }
 
+        public void MergeActivities()
+        {
+            for (int i = 0; i < this.Count-1; i++)
+            {
+                Activity current = this[i];
+                Activity next = this[i + 1];
+                if (current.Name == next.Name)
+                {
+                    current.EndTime = next.EndTime;
+                    this.Remove(next);
+                    i--;
+                }
+            }
+        }
+
         #region INotifyCollectionChanged Members
 
         public event NotifyCollectionChangedEventHandler CollectionChanged;

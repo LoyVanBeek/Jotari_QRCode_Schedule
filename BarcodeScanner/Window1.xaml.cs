@@ -30,9 +30,9 @@ namespace BarcodeScanner
 
         public Window1()
         {
-#if DEBUG
+//#if DEBUG
             ConsoleManager.Show(); 
-#endif
+//#endif
 
             Console.WriteLine("Creating Window");
 
@@ -54,9 +54,9 @@ namespace BarcodeScanner
             Console.WriteLine("Window Loaded");
 
 #if DEBUG
-            //MessageBox.Show("Welkom bij de JOTARI!");
+            MessageBox.Show("Welkom bij de JOTARI!");
 
-            //MessageBox.Show("Welkom bij de JOTARI 2!"); 
+            MessageBox.Show("Welkom bij de JOTARI 2!"); 
 #endif
 
             timer = new DispatcherTimer();
@@ -154,6 +154,7 @@ namespace BarcodeScanner
                 Activity next = atl[activity.EndTime + new TimeSpan(0, 1, 0)];
 
                 NextActivityDisplay.Text = next.Name;
+                NextActivityStartTime.Text = next.StartTime.ToShortTimeString();
             }
             catch (Exception)
             {}

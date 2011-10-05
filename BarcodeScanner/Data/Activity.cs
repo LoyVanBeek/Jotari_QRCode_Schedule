@@ -30,5 +30,10 @@ namespace BarcodeScanner.Data
             EndTime = _start + _duration;
             Location = location;
         }
+
+        public string ToString()
+        {
+            return this.StartTime.ToShortTimeString() + " - " + this.EndTime.ToShortTimeString() + ":" + this.Name + " @ " + this.Location;
+        }
     }
 }

@@ -24,7 +24,7 @@
                 <Setter Property="FontSize" Value="20"/>
             </Style>
         </StackPanel.Resources>
-        
+
         <!--Manual Controls-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <ComboBox Name="daySelector" SelectedIndex="1" Margin="0,0" FontSize="20"
@@ -69,7 +69,7 @@
             </ComboBox>
             <Button Click="Button_Click">Zoek</Button>
         </StackPanel>
-        
+
         <!--Group-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Label>Groep</Label>
@@ -77,17 +77,21 @@
             <Label x:Name="groupDisplay" Content="xx"/>
         </StackPanel>
         <Label FontSize="50">gaat naar</Label>
-        
+
         <!--Current activity-->
+        <Border BorderBrush="Green" BorderThickness="4">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="ActivityDisplay" Text="activiteit" VerticalAlignment="Center"/>
-            <Image x:Name="ActivityImage" MaxHeight="200" Margin="10"/>
+              <TextBlock x:Name="ActivityDisplay" Text="activiteit" VerticalAlignment="Center"/>
+                <Image x:Name="ActivityImage" MaxHeight="200" Margin="10"/>
         </StackPanel>
+        </Border>
 
         <!--Next activity-->
         <Label FontSize="50">daarna</Label>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock x:Name="NextActivityDisplay" Text="volgende" FontSize="80" VerticalAlignment="Center"/>
+            <TextBlock x:Name="NextActivityDisplay" Text="volgende" FontSize="60" VerticalAlignment="Center"/>
+            <TextBlock Text=" om " FontSize="60" VerticalAlignment="Center"/>
+            <TextBlock x:Name="NextActivityStartTime" Text="tijd" FontSize="60" VerticalAlignment="Center"/>
             <!--<Image x:Name="NextActivityImage" MaxHeight="160" Margin="10"/>-->
         </StackPanel>
     </StackPanel>

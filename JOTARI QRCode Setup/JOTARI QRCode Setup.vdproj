@@ -996,9 +996,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:JOTARI QRCode Setup"
+        "ProductName" = "8:JOTARI QRCode Scanner"
         "ProductCode" = "8:{CD9ED72B-3C34-4ED5-8B70-40280148F7A8}"
-        "PackageCode" = "8:{03FCA0C0-7806-4E92-BF09-C274AF74681B}"
+        "PackageCode" = "8:{F74DEE5F-3D83-43B5-B51C-A6C201D0990E}"
         "UpgradeCode" = "8:{DB6B57A9-E6AF-459B-AA0A-DF25A8C3B160}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"

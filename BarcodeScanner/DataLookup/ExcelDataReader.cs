@@ -39,7 +39,7 @@ namespace BarcodeScanner.DataLookup
             catch (InvalidOperationException ioe)
             {
                 Console.WriteLine(ioe.Message);
-                throw ioe;
+                //throw ioe;
             }
 
             //columnActivities = new Dictionary<int, string>();
@@ -248,6 +248,11 @@ namespace BarcodeScanner.DataLookup
             //Groot
             table = data.Tables["Groot"];
             GetSchedule(schedule, table, "Groot");
+
+            foreach (ActivityTimeLine timeline in schedule.Values)
+            {
+                timeline.MergeActivities();
+            }
 
             return schedule;
         }
