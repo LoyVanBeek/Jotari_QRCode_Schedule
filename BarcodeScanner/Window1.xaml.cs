@@ -12,6 +12,7 @@ using BarcodeScanner.Scanner;
 using System.Windows.Media;
 using System.IO;
 using System.Windows.Media.Imaging;
+using System.Windows.Input;
 
 namespace BarcodeScanner
 {
@@ -91,6 +92,8 @@ namespace BarcodeScanner
                 groupSelector.Items.Add("Groot" + g.ToString());
             }
             #endregion
+
+            Keyboard.Focus(groupSelector);
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -158,6 +161,8 @@ namespace BarcodeScanner
             }
             catch (Exception)
             {}
+
+            Keyboard.Focus(groupSelector);
         }
 
         private Dictionary<string, ActivityTimeLine> GetSchedule()
@@ -335,6 +340,14 @@ namespace BarcodeScanner
                 {
                     ActivityImage.Source = null;
                 }
+            }
+        }
+
+        private void KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                Button_Click(sender, null);
             }
         }
     }

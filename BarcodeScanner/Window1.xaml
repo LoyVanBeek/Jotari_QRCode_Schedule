@@ -28,14 +28,16 @@
         <!--Manual Controls-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <ComboBox Name="daySelector" SelectedIndex="1" Margin="0,0" FontSize="20"
-                      Height="50">
+                      Height="50"
+                      KeyUp="KeyPress">
                 <ComboBoxItem>Auto</ComboBoxItem>
                 <ComboBoxItem IsSelected="True">Zaterdag</ComboBoxItem>
                 <ComboBoxItem>Zondag</ComboBoxItem>
             </ComboBox>
 
             <StackPanel Orientation="Horizontal"
-                      Height="50">
+                      Height="50"
+                      KeyUp="KeyPress">
                 <TextBox x:Name="txtNum1" Width="50" Text="0" TextChanged="txtNum1_TextChanged"
                          VerticalAlignment="Center" VerticalContentAlignment="Center"
                       Height="50"/>
@@ -50,7 +52,8 @@
             <TextBlock FontSize="20"
                       Height="50">:</TextBlock>
             <StackPanel Orientation="Horizontal"
-                      Height="50">
+                      Height="50"
+                      KeyUp="KeyPress">
                 <TextBox x:Name="txtNum2" Width="50" Text="0" TextChanged="txtNum2_TextChanged"
                          VerticalAlignment="Center" VerticalContentAlignment="Center"
                       Height="50"/>
@@ -63,8 +66,9 @@
                 </StackPanel>
             </StackPanel>
 
-            <ComboBox Name="groupSelector" Margin="0,0" SelectedIndex="0" FontSize="20"
-                      Height="50">
+            <ComboBox Name="groupSelector" Margin="0,0" SelectedIndex="0" FontSize="20" 
+                      Height="50"
+                      KeyUp="KeyPress">
                 <ComboBoxItem>Auto</ComboBoxItem>
             </ComboBox>
             <Button Click="Button_Click">Zoek</Button>

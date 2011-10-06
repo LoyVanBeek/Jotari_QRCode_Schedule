@@ -211,7 +211,7 @@ namespace BarcodeScanner.DataLookup
             #endregion programma groot
 
             #region leiding
-            OleDbCommand leidingCommand = new OleDbCommand("SELECT * FROM [Leiding Kleine speltakken$]", excelConn);
+            OleDbCommand leidingCommand = new OleDbCommand("SELECT * FROM [Leiding$]", excelConn);
 
             OleDbDataAdapter leidingDA = new OleDbDataAdapter(leidingCommand);
 
