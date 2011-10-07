@@ -94,3 +94,5 @@ D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\p
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\veld.png
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\wassen, plassen en naar bed - 2.png
 D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\Images\png\wassen, plassen en naar bed.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\log4net.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\BarcodeScanner\bin\Debug\log4net.xml

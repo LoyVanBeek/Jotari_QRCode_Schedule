@@ -87,3 +87,5 @@ D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\Images\png\tv.png
 D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\Images\png\veld.png
 D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\Images\png\wassen, plassen en naar bed - 2.png
 D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\Images\png\wassen, plassen en naar bed.png
+D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\log4net.dll
+D:\Development\Scouting\Jotari_QRCode_Schedule\Tests\bin\Debug\log4net.xml

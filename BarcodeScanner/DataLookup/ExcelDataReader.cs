@@ -5,11 +5,14 @@ using System.Text;
 using System.Data;
 using System.Data.OleDb;
 using BarcodeScanner.Data;
+using log4net;
 
 namespace BarcodeScanner.DataLookup
 {
     public class ExcelDataReader : IDataReader
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(ExcelDataReader));
+
         const int STARTTIMEINDEX = 0;
         const int ENDTIMEINDEX = 1;
 
@@ -35,11 +38,16 @@ namespace BarcodeScanner.DataLookup
             try
             {
                 data = exceldata(filename);
+                log.Info("Succesfully loaded data");
             }
             catch (InvalidOperationException ioe)
             {
                 Console.WriteLine(ioe.Message);
-                //throw ioe;
+                log.Error("An error occured when loading excel data", ioe);
+            }
+            catch (OleDbException ode)
+            {
+                log.Error("An error occured when loading excel data", ode);
             }
 
             //columnActivities = new Dictionary<int, string>();

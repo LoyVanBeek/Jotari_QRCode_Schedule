@@ -13,6 +13,10 @@ using System.Windows.Media;
 using System.IO;
 using System.Windows.Media.Imaging;
 using System.Windows.Input;
+using log4net;
+using log4net.Layout;
+using log4net.Config;
+using log4net.Appender;
 
 namespace BarcodeScanner
 {
@@ -21,6 +25,8 @@ namespace BarcodeScanner
     /// </summary>
     public partial class Window1 : Window
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(Window1));
+
         Dictionary<string, ActivityTimeLine> schedule;
 
         ICodeReader scanner;
@@ -34,7 +40,7 @@ namespace BarcodeScanner
 //#if DEBUG
             ConsoleManager.Show(); 
 //#endif
-
+            BasicConfigurator.Configure(new FileAppender(new SimpleLayout(), "window.log", true));
             Console.WriteLine("Creating Window");
 
             activityImages = new Dictionary<string, ImageSource>();
@@ -55,9 +61,9 @@ namespace BarcodeScanner
             Console.WriteLine("Window Loaded");
 
 #if DEBUG
-            MessageBox.Show("Welkom bij de JOTARI!");
+            //MessageBox.Show("Welkom bij de JOTARI!");
 
-            MessageBox.Show("Welkom bij de JOTARI 2!"); 
+            //MessageBox.Show("Welkom bij de JOTARI 2!"); 
 #endif
 
             timer = new DispatcherTimer();
@@ -296,6 +302,8 @@ namespace BarcodeScanner
 
         private void TryDisplayActivity(DateTime time, string groupID)
         {
+            log.Info("Showing activity for " + groupID + " at " + time.ToString());
+
             Activity acti = null;
             try
             {
