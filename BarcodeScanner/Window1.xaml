@@ -30,8 +30,8 @@
             <ComboBox Name="daySelector" SelectedIndex="1" Margin="0,0" FontSize="20"
                       Height="50"
                       KeyUp="KeyPress">
-                <ComboBoxItem>Auto</ComboBoxItem>
-                <ComboBoxItem IsSelected="True">Zaterdag</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">Auto</ComboBoxItem>
+                <ComboBoxItem>Zaterdag</ComboBoxItem>
                 <ComboBoxItem>Zondag</ComboBoxItem>
             </ComboBox>
 

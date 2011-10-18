@@ -79,10 +79,10 @@ namespace BarcodeScanner.DataLookup
             Dictionary<int, string> groot_zaterdag = new Dictionary<int, string>();
             groot_zaterdag.Add(2, "Radio");
             groot_zaterdag.Add(3, "Jota");
-            groot_zaterdag.Add(4, "Joti");
-            groot_zaterdag.Add(5, "1");
-            groot_zaterdag.Add(6, "2");
-            groot_zaterdag.Add(7, "3");
+            groot_zaterdag.Add(4, "TV");
+            groot_zaterdag.Add(5, "Joti");
+            groot_zaterdag.Add(6, "Klimtoren");
+            groot_zaterdag.Add(7, "Bos");
 
             Dictionary<int, string> groot_zondag = new Dictionary<int, string>();
             groot_zondag.Add(2, "Radio");
